@@ -12,7 +12,7 @@ from typing import Dict, List, Optional
 # }
 
 class QuestionAnswerStore:
-    def __init__(self, path: str = "qa_store.json"):
+    def __init__(self, path: str = "data/qa_store.json"):
         self.path = path
         self._data = {"questions": {}, "answers": {}}
         self._load()

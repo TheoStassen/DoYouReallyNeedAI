@@ -12,7 +12,7 @@ except Exception:
     copilot_query = None
 
 BASE_DIR = os.path.dirname(__file__)
-STORE_PATH = os.path.join(BASE_DIR, "example_qa_store.json")
+STORE_PATH = os.path.join(BASE_DIR, "data/qa_store.json")
 
 app = Flask(__name__, template_folder="templates")
 store = QuestionAnswerStore(STORE_PATH)
@@ -198,7 +198,7 @@ def api_search():
             # This greatly reduces Copilot work vs giving it the whole store or a large prompt.
             app.logger.debug("Copilot response %r did not match any questions",
                              q_summary)
-            query_text = f"Examine example_qa_store.json, get the question that is the most similar to this : ' {q_summary} ', the response to this query must be only the question ID, nothing else."
+            query_text = f"Examine data/qa_store.json, get the question that is the most similar to this : ' {q_summary} ', the response to this query must be only the question ID, nothing else."
             q_id = copilot_query(query_text).split("\n")[-1].strip()
             app.logger.debug("search time second copilot query: %.2f seconds",
                              time.time() - start_sec_query_time)
