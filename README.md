@@ -45,24 +45,34 @@ Charts & demonstration answers
 
 Deployment notes
 - The project includes a `Dockerfile` and an `entrypoint.sh` so it can be containerized. If you deploy with the container, ensure the environment provides the right runtime (Python, any required system packages) and that the `gunicorn` binary is available if you use it in the entrypoint.
-- Fly.io is a simple option for deploying containerized Python apps (small free tier available). Heroku-style PaaS also works.
-- If your production environment must call the Copilot CLI, be aware that Copilot CLI authentication may require interactive login and/or tokens — containerized non-interactive login needs secrets or a pre-authenticated token. Test the CLI flow in your target environment before relying on it in production.
 
-Customization & theme
-- The UI uses Tailwind via CDN to keep the project light. If you need to customize the theme further, edit `templates/index.html` and the inline styles.
-- Credits/contact are displayed in a fixed bottom bar; you can edit contact details directly in `templates/index.html`.
+[//]: # (- Fly.io is a simple option for deploying containerized Python apps &#40;small free tier available&#41;. Heroku-style PaaS also works.)
 
-Troubleshooting
-- If charts don't appear: open the browser console to check for failed `/api/answer-data` requests or JS errors. Ensure `chart-helper.js` is loaded and Chart.js CDN is reachable.
-- If the theme doesn't toggle correctly, clear site storage (localStorage) or check that the `.dark` class is applied to the `<html>` element.
+[//]: # (- If your production environment must call the Copilot CLI, be aware that Copilot CLI authentication may require interactive login and/or tokens — containerized non-interactive login needs secrets or a pre-authenticated token. Test the CLI flow in your target environment before relying on it in production.)
+[//]: # ()
+[//]: # (Customization & theme)
+
+[//]: # (- The UI uses Tailwind via CDN to keep the project light. If you need to customize the theme further, edit `templates/index.html` and the inline styles.)
+
+[//]: # (- Credits/contact are displayed in a fixed bottom bar; you can edit contact details directly in `templates/index.html`.)
+
+[//]: # ()
+[//]: # (Troubleshooting)
+
+[//]: # (- If charts don't appear: open the browser console to check for failed `/api/answer-data` requests or JS errors. Ensure `chart-helper.js` is loaded and Chart.js CDN is reachable.)
+
+[//]: # (- If the theme doesn't toggle correctly, clear site storage &#40;localStorage&#41; or check that the `.dark` class is applied to the `<html>` element.)
 
 License & credits
 - This project is a prototype meant for experimentation and UI design. Replace the placeholder contact/github links in the credits bar with your real details.
 
 Contact
-- Author: Your Name Here — replace contact details in `templates/index.html`.
+- Author: Théo Stassen — `theo.stassen@protonmail.com`.
 
-Enjoy — and if you want, I can:
-- extract the credits block into a reusable template partial (`_credits.html`),
-- move external vendor scripts (Chart.js) to `static/` to avoid CDN warnings, or
-- add a small management page to edit `example_qa_store.json` from the web UI.
+[//]: # (Enjoy — and if you want, I can:)
+
+[//]: # (- extract the credits block into a reusable template partial &#40;`_credits.html`&#41;,)
+
+[//]: # (- move external vendor scripts &#40;Chart.js&#41; to `static/` to avoid CDN warnings, or)
+
+[//]: # (- add a small management page to edit `example_qa_store.json` from the web UI.)
