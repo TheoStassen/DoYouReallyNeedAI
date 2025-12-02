@@ -1,0 +1,8 @@
+# plain
+__pycache__
+*.pyc
+.env
+.vscode
+.git
+node_modules
+copilot  # keep local binary out of docker context if you don't want to include it

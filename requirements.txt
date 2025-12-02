@@ -1,0 +1,4 @@
+Flask>=2.0
+numpy>=1.21
+gunicorn
+scikit-learn>=1.3

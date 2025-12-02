@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script>
+    // Initialize theme early so Tailwind's dark: styles render correctly
+    (function(){
+      try {
+        const stored = localStorage.getItem('theme');
+        // default to stored pref if present, otherwise default to dark
+        const theme = stored || 'dark';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        // expose current theme for other scripts if needed
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e){/* ignore */}
+    })();
+  </script>
+  <!-- Tell Tailwind CDN to use class strategy for dark mode so styles are controlled by the .dark class -->
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = Object.assign(tailwind.config || {}, { darkMode: 'class' });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js for simple plots -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- External chart helper (fetch + render) -->
+  <script src="/static/js/chart-helper.js"></script>
+
+  <!-- Explicit override to ensure class-based toggling wins over prefers-color-scheme rules -->
+  <style>
+    /* Use the new font across the page */
+    :root { --ui-font: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    html, body { font-family: var(--ui-font); }
+
+    /* Support both .dark class and data-theme attribute. Separate selectors to satisfy analyzer. */
+    html.dark { background-color: #0f172a !important; color: #f8fafc !important; }
+    [data-theme=dark] { background-color: #0f172a !important; color: #f8fafc !important; }
+
+    html:not(.dark) { background-color: #f8fafc !important; color: #0f172a !important; }
+    [data-theme=light] { background-color: #f8fafc !important; color: #0f172a !important; }
+
+    body { background-color: inherit !important; color: inherit !important; }
+
+    /* Neutralize Tailwind-generated dark: utilities when theme is light. Use initial/none values acceptable to analyzer. */
+    [data-theme=light] [class*="dark:"] { background-color: initial !important; color: initial !important; border-color: initial !important; box-shadow: none !important; fill: none !important; stroke: none !important; }
+    html:not(.dark) [class*="dark:"] { background-color: initial !important; color: initial !important; border-color: initial !important; box-shadow: none !important; fill: none !important; stroke: none !important; }
+
+    /* Fallback explicit light-mode values for elements used on this page */
+    [data-theme=light] .bg-white { background-color: #ffffff !important; }
+    [data-theme=light] .text-gray-800 { color: #1f2937 !important; }
+    [data-theme=light] .text-gray-700 { color: #374151 !important; }
+    [data-theme=light] .border-gray-200 { border-color: #e5e7eb !important; }
+    [data-theme=light] .placeholder-gray-500::placeholder { color: #6b7280 !important; }
+
+    /* Explicitly override common dark:... utilities compiled by Tailwind CDN */
+    [data-theme=light] .dark\:bg-gray-800 { background-color: #ffffff !important; }
+    [data-theme=light] .dark\:bg-gray-700 { background-color: #ffffff !important; }
+    [data-theme=light] .dark\:bg-gray-900 { background-color: #f8fafc !important; }
+    [data-theme=light] .dark\:text-gray-100 { color: #0f172a !important; }
+    [data-theme=light] .dark\:text-gray-300 { color: #4b5563 !important; }
+    [data-theme=light] .dark\:border-gray-700 { border-color: #e5e7eb !important; }
+
+    /* Also include selectors for when class .dark is not present */
+    html:not(.dark) .dark\:bg-gray-800 { background-color: #ffffff !important; }
+    html:not(.dark) .dark\:bg-gray-700 { background-color: #ffffff !important; }
+    html:not(.dark) .dark\:bg-gray-900 { background-color: #f8fafc !important; }
+    html:not(.dark) .dark\:text-gray-100 { color: #0f172a !important; }
+    html:not(.dark) .dark\:text-gray-300 { color: #4b5563 !important; }
+    html:not(.dark) .dark\:border-gray-700 { border-color: #e5e7eb !important; }
+
+    /* Ensure container specifically switches to light BG/text (p-8 used in template) */
+    [data-theme=light] .w-full.max-w-2xl.p-8.bg-white { background-color: #ffffff !important; color: #0f172a !important; }
+    html:not(.dark) .w-full.max-w-2xl.p-8.bg-white { background-color: #ffffff !important; color: #0f172a !important; }
+
+    /* Small utility: make sr-only class (if Tailwind isn't loaded yet) */
+    .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+
+    /* Chart container sizing */
+    .chart-wrapper { width: 100%; max-width: 800px; height: 260px; }
+    .chart-canvas { width: 100% !important; height: 260px !important; }
+
+    /* Loading overlay styles */
+    #loading-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(2,6,23,0.6); z-index: 60; }
+    #loading-overlay .loader { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 18px 22px; display:flex; flex-direction:column; align-items:center; gap:10px; box-shadow: 0 8px 32px rgba(2,6,23,0.6); }
+    #loading-overlay .spinner { width:44px; height:44px; border:5px solid rgba(255,255,255,0.12); border-top-color: #7c3aed; border-radius:50%; animation: spin 0.9s linear infinite; }
+    #loading-overlay .loading-text { color: #e6edf3; font-weight:600; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Large inline spinner styles (themed to match gradients used on the page) */
+    #inline-spinner { display: none; }
+    #inline-spinner.flex { display: flex; }
+    .big-spinner { width: 88px; height: 88px; position: relative; display:inline-flex; align-items:center; justify-content:center; }
+    .big-spinner-ring { width: 88px; height: 88px; transform-origin: 50% 50%; animation: spin-slow 1.6s linear infinite; }
+    .spinner-stroke { filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35)); }
+    /* subtle rotation for the ring */
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+    /* Ensure the inline spinner matches the dark/light background */
+    :root:not(.dark) .spinner-stroke { filter: drop-shadow(0 6px 18px rgba(0,0,0,0.08)); }
+  </style>
+
+  <title>Est-ce que vous avez vraiment besoin d'IA ?</title>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center text-gray-900 dark:text-gray-100 transition-colors duration-200">
+  <div class="w-full max-w-5xl p-8 pb-28 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl">
+
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex-1 text-center">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:to-pink-400">Est-ce que vous avez vraiment besoin d'IA ?</h1>
+        <p class="mt-3 text-sm text-gray-600 dark:text-gray-300">Vous voulez utiliser de l'IA dans un domaine particulier ? Tapez votre idée d'utilisation, on vous dit si c'est intéressant ou pas</p>
+      </div>
+      <div class="ml-4">
+        <button id="theme-toggle" type="button" aria-pressed="false" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400" title="Basculer thème">🌙</button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <form id="search-form" class="flex items-center gap-3" onsubmit="event.preventDefault(); document.getElementById('search').click();">
+        <label for="q" class="sr-only">Question</label>
+        <div class="relative flex-1">
+          <input id="q" type="search" placeholder="Posez votre question..." class="w-full pl-11 pr-4 py-3 rounded-full bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-colors duration-150" />
+        </div>
+        <button id="search" type="button" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow">
+          <span class="btn-text">Rechercher</span>
+        </button>
+       </form>
+      <!-- Large inline spinner shown under the search area while searching -->
+      <div id="inline-spinner" class="hidden justify-center items-center mt-4" aria-hidden="true">
+        <div class="big-spinner" role="status" aria-label="Chargement">
+          <svg class="big-spinner-ring" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6366f1" />
+                <stop offset="50%" stop-color="#7c3aed" />
+                <stop offset="100%" stop-color="#ec4899" />
+              </linearGradient>
+            </defs>
+            <circle cx="22" cy="22" r="18" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" class="spinner-stroke" />
+          </svg>
+          <!-- spinner core removed to keep only the rotating ring -->
+        </div>
+      </div>
+     </div>
+
+    <div id="results" class="space-y-4"></div>
+  </div>
+
+  <!-- Fixed bottom credits bar (navbar-style) centered across the page -->
+  <div class="fixed inset-x-0 bottom-4 flex justify-center z-50 pointer-events-none">
+    <div id="credits-bar" class="pointer-events-auto w-full max-w-7xl px-4 py-3 bg-white dark:bg-gray-800 rounded-2xl shadow-md text-gray-700 dark:text-gray-200">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="text-center sm:text-left">
+          <div class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-tight max-w-6xl">Bienvenue sur mon petit site, à l'état de prototype. Désolé le temps de réponse est long, je travaille dessus.</div>
+          <div class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-tight max-w-6xl">Pour l'aspect technique, il utilise une base de données de questions générée par un <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:to-pink-400 font-semibold">GenAi-based multi-agent reinforcement learning algorithm.</span></div>
+          <div class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-tight max-w-6xl"> Les réponses sont 100% humaines. La connection entre les deux se fait à l'aide d'une GenAi (qui est un peu lente..)</div>
+        </div>
+        <div class="flex items-center gap-4 text-xs sm:text-sm">
+          <a href="mailto:theo.stassen@protonmail.com" class="text-indigo-600 dark:text-indigo-300 hover:underline">theo.stassen@protonmail.com</a>
+          <!-- Compact GitHub icon link: replace `your-username` in the href -->
+          <a href="https://github.com/TheoStassen" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-300 hover:text-indigo-500 flex items-center" title="Voir le dépôt GitHub" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current" role="img" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.333-5.466-5.93 0-1.31.47-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.102.81 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading overlay shown during /api/search requests -->
+  <div id="loading-overlay" class="hidden" role="status" aria-hidden="true">
+    <div class="loader">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="loading-text">Recherche en cours…</div>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle logic – wait for DOM ready to be extra-safe
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+
+      function isDark() {
+        return document.documentElement.classList.contains('dark');
+      }
+      function updateButton() {
+        const dark = isDark();
+        toggle.textContent = dark ? '🌙' : '☀️';
+        toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        toggle.title = dark ? 'Passer en clair' : 'Passer en sombre';
+      }
+
+      toggle.addEventListener('click', () => {
+        const nowDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('theme', nowDark ? 'dark' : 'light'); } catch (e) { /* ignore */ }
+        document.documentElement.setAttribute('data-theme', nowDark ? 'dark' : 'light');
+        updateButton();
+      });
+
+      // initialize icon based on current state
+      updateButton();
+    });
+
+    // small helper to show/hide the global loading overlay and disable inputs while searching
+    function setLoading(on){
+      const overlay = document.getElementById('loading-overlay');
+      const qInput = document.getElementById('q');
+      const searchBtnEl = document.getElementById('search');
+      if (!overlay) return;
+      if (on) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (qInput) { qInput.classList.add('opacity-60'); qInput.setAttribute('disabled',''); }
+        if (searchBtnEl) { searchBtnEl.classList.add('opacity-60'); searchBtnEl.disabled = true; }
+      } else {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (qInput) { qInput.classList.remove('opacity-60'); qInput.removeAttribute('disabled'); }
+        if (searchBtnEl) { searchBtnEl.classList.remove('opacity-60'); searchBtnEl.disabled = false; }
+      }
+    }
+
+    async function search(q) {
+      const res = await fetch('/api/search?q=' + encodeURIComponent(q));
+      return res.json();
+    }
+
+    // Prevent duplicate concurrent searches: simple in-flight guard + disable button
+    let searchInFlight = false;
+    const searchBtn = document.getElementById('search');
+    const btnTextEl = searchBtn.querySelector('.btn-text');
+    const largeSpinner = document.getElementById('inline-spinner');
+    searchBtn.addEventListener('click', async () => {
+      if (searchInFlight) return; // ignore extra clicks while a request is pending
+      const q = document.getElementById('q').value.trim();
+      if (!q) return;
+      searchInFlight = true;
+      const prevDisabled = searchBtn.disabled;
+      const prevText = btnTextEl ? btnTextEl.textContent : searchBtn.textContent;
+      try {
+        // show the global overlay and disable inputs
+        setLoading(true);
+        // show the new large spinner under the search box and change button text
+        if (largeSpinner) { largeSpinner.classList.remove('hidden'); largeSpinner.classList.add('flex'); largeSpinner.setAttribute('aria-hidden','false'); }
+        if (btnTextEl) btnTextEl.textContent = 'Chargement...';
+        const results = await search(q);
+        // Results received
+        const out = document.getElementById('results');
+        out.innerHTML = '';
+        if (results.length === 0) {
+          out.innerHTML = '<div class="p-4 bg-white dark:bg-gray-700 rounded shadow">Aucun résultat</div>';
+          return;
+        }
+        let chartCount = 0;
+        for (const r of results) {
+          const cardEl = document.createElement('div');
+          cardEl.className = 'p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md result-card';
+
+          // Question (centered, impactful)
+          const title = document.createElement('div');
+          title.className = 'text-center text-lg sm:text-xl md:text-2xl font-extrabold text-gray-800 dark:text-gray-100 result-question';
+          title.textContent = r.description || 'Question sans description';
+          cardEl.appendChild(title);
+
+          // Answers container — each answer is a centered block that takes more space
+          const ansContainer = document.createElement('div');
+          ansContainer.className = 'mt-4 flex flex-col items-center gap-3';
+          if (r.answers && r.answers.length) {
+            for (const a of r.answers) {
+              // support two shapes: {id, text} or plain id string
+              const aid = (a && typeof a === 'object' && ('id' in a)) ? a.id : a;
+              const atext = (a && typeof a === 'object' && ('text' in a)) ? a.text : (typeof a === 'string' ? a : '');
+
+              // If this answer has id '3', render a plot by fetching /api/answer-data/4
+              if (String(aid) === '3') {
+                // Split the answer text into title and paragraph using '#' as separator
+                const raw = atext || (a && a.text) || '';
+                const parts = raw.split('#');
+                const titleText = (parts[0] || '').trim();
+                const paragraphText = (parts.slice(1).join('#') || '').trim();
+
+                // Create a textual container: highlighted title + paragraph (max width for readability)
+                const textContainer = document.createElement('div');
+                textContainer.className = 'w-full sm:w-11/12 px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 flex flex-col items-center gap-3';
+
+                if (titleText) {
+                  const titleEl = document.createElement('div');
+                  titleEl.className = 'text-center text-xl sm:text-2xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500';
+                  titleEl.textContent = titleText;
+                  textContainer.appendChild(titleEl);
+                }
+
+                if (paragraphText) {
+                  const pEl = document.createElement('div');
+                  pEl.className = 'text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl';
+                  pEl.textContent = paragraphText;
+                  textContainer.appendChild(pEl);
+                }
+
+                ansContainer.appendChild(textContainer);
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'w-full sm:w-11/12 bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg flex justify-center';
+                const canvas = document.createElement('canvas');
+                const cid = `chart-${aid}-${chartCount++}`;
+                canvas.id = cid;
+                canvas.className = 'chart-canvas';
+                wrapper.appendChild(canvas);
+                // add a small loading indicator so we can see the fetch was triggered
+                const loadId = `${cid}-loading`;
+                const loadingEl = document.createElement('div');
+                loadingEl.id = loadId;
+                loadingEl.className = 'text-sm text-gray-500 dark:text-gray-400 mt-2';
+                loadingEl.textContent = 'Chargement...';
+                wrapper.appendChild(loadingEl);
+                ansContainer.appendChild(wrapper);
+
+                // creating chart task for answer id
+
+                // fetch data and render chart
+                // call the centralized helper
+                fetchAndRenderAnswerData(aid, cid, wrapper).then(() => {
+                  // remove loading if still present
+                  const le = document.getElementById(`${cid}-loading`);
+                  if (le) le.remove();
+                }).catch(err => {
+                   console.error('Error in fetchAndRenderAnswerData', err);
+                   const errEl = document.createElement('div');
+                   errEl.className = 'text-sm text-red-500';
+                   errEl.textContent = 'Erreur inattendue lors du chargement du graphique';
+                   wrapper.appendChild(errEl);
+                 });
+              } else {
+                // For regular answers, also split by '#' to produce title + paragraph
+                const raw = atext || (a && a.text) || '';
+                const parts = raw.split('#');
+                const titleText = (parts[0] || '').trim();
+                const paragraphText = (parts.slice(1).join('#') || '').trim();
+
+                const ans = document.createElement('div');
+                ans.className = 'w-full sm:w-11/12 bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg flex flex-col items-center gap-2';
+                if (titleText) {
+                  const titleEl = document.createElement('div');
+                  titleEl.className = 'text-center text-lg sm:text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500';
+                  titleEl.textContent = titleText;
+                  ans.appendChild(titleEl);
+                }
+                if (paragraphText) {
+                  const pEl = document.createElement('div');
+                  pEl.className = 'text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl';
+                  pEl.textContent = paragraphText;
+                  ans.appendChild(pEl);
+                }
+                // If neither split part exists, fallback to raw text
+                if (!titleText && !paragraphText) {
+                  ans.textContent = raw;
+                }
+                ansContainer.appendChild(ans);
+              }
+            }
+          } else {
+            const ans = document.createElement('div');
+            ans.className = 'w-full sm:w-11/12 text-center text-base sm:text-lg md:text-lg text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg';
+            ans.textContent = 'Aucune réponse liée.';
+            ansContainer.appendChild(ans);
+          }
+          cardEl.appendChild(ansContainer);
+          out.appendChild(cardEl);
+        }
+      } finally {
+        searchInFlight = false;
+        // hide overlay and restore controls
+        setLoading(false);
+        // hide large inline spinner and restore button text
+        if (largeSpinner) { largeSpinner.classList.add('hidden'); largeSpinner.classList.remove('flex'); largeSpinner.setAttribute('aria-hidden','true'); }
+        if (btnTextEl) btnTextEl.textContent = prevText;
+        searchBtn.disabled = prevDisabled;
+      }
+    });
+
+    // Enter is handled by the form's onsubmit (which triggers a single click on the search button). No extra keydown handler needed.
+   </script>
+ </body>
+ </html>
