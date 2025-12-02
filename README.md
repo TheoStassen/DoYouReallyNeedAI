@@ -9,12 +9,13 @@ Key points
 
 Quick start (local)
 
-1. Create a virtual environment and install dependencies from `requirements.txt` (recommended):
+1. Create a virtual environment and install dependencies from `requirements.txt` and `install.sh`:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+bash install.sh
 ```
 
 2. Run the Flask app (project uses `app.py`):
