@@ -87,6 +87,7 @@ if SKLEARN_AVAILABLE and _question_texts:
 
 # Small LRU cache for Copilot responses to avoid repeating expensive calls
 from functools import lru_cache
+import threading
 
 @lru_cache(maxsize=512)
 def _cached_copilot(prompt: str) -> str:
@@ -94,6 +95,38 @@ def _cached_copilot(prompt: str) -> str:
         return ''
     return copilot_query(prompt)
 
+#
+# # --- New: warm-up Copilot in background to reduce first-call latency ---
+# def _warm_up_copilot():
+#     """Run a silent Copilot call in background to avoid cold-start latency.
+#
+#     This is non-blocking (daemon thread) and failures are logged and ignored.
+#     """
+#     if not copilot_query:
+#         app.logger.debug("Copilot not available; skipping warm-up")
+#         return
+#     try:
+#         app.logger.debug("Starting Copilot warm-up (silent)")
+#         # Minimal prompt and very small max-tokens to keep the call fast.
+#         prompt = " "
+#         try:
+#             # try new signature with extra_args if available
+#             copilot_query(prompt, reset=True,)
+#         except TypeError:
+#             # fallback to older signature
+#             try:
+#                 copilot_query(prompt, reset=True)
+#             except TypeError:
+#                 copilot_query(prompt)
+#         app.logger.debug("Copilot warm-up finished")
+#     except Exception:
+#         app.logger.exception("Copilot warm-up failed (ignored)")
+
+# # start warm-up in a daemon thread so it doesn't block startup
+# try:
+#     threading.Thread(target=_warm_up_copilot, daemon=True).start()
+# except Exception:
+#     app.logger.exception("Failed to start Copilot warm-up thread")
 
 @app.route("/api/search")
 def api_search():
@@ -131,39 +164,7 @@ def api_search():
     if results:
         app.logger.debug('search time first part (substring): %.3f sec', time.time() - start_search_time)
         return jsonify(results)
-    #
-    # # If sklearn is available, use the local TF-IDF matcher first (fast)
-    # if SKLEARN_AVAILABLE and _vectorizer is not None and _question_tfidf is not None:
-    #     try:
-    #         vec = _vectorizer.transform([q])
-    #         # cosine similarity via linear_kernel is fast for sparse matrices
-    #         sims = linear_kernel(vec, _question_tfidf).flatten()
-    #         # Get top-3 candidates from TF-IDF sims (highest scores)
-    #         top_k = 3
-    #         if sims.size > 0:
-    #             top_idx = list(np.argsort(sims)[-top_k:][::-1])
-    #         else:
-    #             top_idx = []
-    #         app.logger.debug('Local matcher top indices: %s', top_idx)
-    #         # Add any candidate with score >= 0.5 to results
-    #         added = 0
-    #         for idx in top_idx:
-    #             score = float(sims[int(idx)])
-    #             qid = _question_ids[int(idx)]
-    #             app.logger.debug('Candidate qid=%s score=%.4f', qid, score)
-    #             if score >= 0.3:
-    #                 qobj = store._data['questions'][qid]
-    #                 results.append({
-    #                     'id': qid,
-    #                     'text': qobj.get('text', ''),
-    #                     'answers': store.get_answers_for_question(qid),
-    #                 })
-    #                 added += 1
-    #         if added:
-    #             app.logger.debug('Returning %d local TF-IDF matches (threshold 0.5)', added)
-    #             return jsonify(results)
-    #     except Exception:
-    #         app.logger.exception('Local TF-IDF match failed')
+
 
     app.logger.debug("search time first part: %.2f seconds", time.time() - start_search_time)
 
@@ -173,37 +174,14 @@ def api_search():
             # First, use a short summarization prompt (fast response expected)
             start_query_time = time.time()
             # Simplify prompt; avoid large instructions or mentioning filenames — keep it short and focused
-            summary_prompt = f"En une courte phrase (3 mots max), résume la question correspondant à: {q}"
-            q_summary = _cached_copilot(summary_prompt).split("\n")[-1].strip()
+            prompt = (f"En français, fait un résumé de la question '{q}' en AU PLUS 3 mots, "
+                      f"puis répond EXCLUSIVEMENT l'id entier de la question la plus proche de ce résumé dans data/questions.txt. "
+                      f"Réponds uniquemnt cet ID, sans rien d'autre.")
+            response = _cached_copilot(prompt)
+            q_id = response.strip().split("\n")[-1].strip()
             app.logger.debug("search time first query: %.2f seconds", time.time() - start_query_time)
-            app.logger.debug("Copilot response summary for prompt %r: %s", q, str(q_summary))
+            app.logger.debug("Copilot response  for prompt %r: %s", q, str(response))
 
-            if q_summary:
-                for qid, qobj in store._data.get("questions", {}).items():
-                    text = (qobj.get("text") or "")
-                    if q_summary.lower() in text.lower():
-                        results.append({
-                            "id": qid,
-                            "text": text,
-                            "description": qobj.get("description", ""),
-                            "answers": store.get_answers_for_question(qid),
-                        })
-                if results:
-                    app.logger.debug('Found matches using copilot summary')
-                    return jsonify(results)
-
-            # Fallback: ask Copilot to return the best matching ID.
-            start_sec_query_time = time.time()
-            # Make prompt compact: only provide top-K candidates (ids + short text) for Copilot to choose from.
-            # This greatly reduces Copilot work vs giving it the whole store or a large prompt.
-            app.logger.debug("Copilot response %r did not match any questions",
-                             q_summary)
-            query_text = f"Examine data/qa_store.json, get the question that is the most similar to this : ' {q_summary} ', the response to this query must be only the question ID, nothing else."
-            q_id = copilot_query(query_text).split("\n")[-1].strip()
-            app.logger.debug("search time second copilot query: %.2f seconds",
-                             time.time() - start_sec_query_time)
-            app.logger.debug("Copilot returned question id %r for prompt %r",
-                             q_id, q)
             if q_id.isdigit() and q_id in store._data.get("questions", {}):
                 qobj = store._data["questions"][q_id]
                 results.append({

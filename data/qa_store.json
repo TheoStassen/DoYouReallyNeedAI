@@ -1,0 +1,902 @@
+{
+  "questions": {
+    "1": {
+      "text": "Adaptation allergies",
+      "description": "Adaption traitements allergies",
+      "answers": [
+        "12"
+      ]
+    },
+    "2": {
+      "text": "Ajustement exposition",
+      "description": "Ajustement exposition photos",
+      "answers": [
+        "14"
+      ]
+    },
+    "3": {
+      "text": "Ajustement recettes humidité",
+      "description": "Ajustement de recettes en fonction de l'humidité",
+      "answers": [
+        "15"
+      ]
+    },
+    "4": {
+      "text": "Analyse fumée",
+      "description": "Analyse de la fumée pour détection incendie",
+      "answers": [
+        "16"
+      ]
+    },
+    "5": {
+      "text": "Analyse humeur textes",
+      "description": "Analyse de l'humeur dans des textes",
+      "answers": [
+        "17"
+      ]
+    },
+    "6": {
+      "text": "Analyse peau",
+      "description": "Analyse de la peau pour diagnostic",
+      "answers": [
+        "12"
+      ]
+    },
+    "7": {
+      "text": "Analyse posture",
+      "description": "Analyse de la posture corporelle",
+      "answers": [
+        "12",
+        "13"
+      ]
+    },
+    "8": {
+      "text": "Analyse radiographies animaux",
+      "description": "Analyse de radiographies pour animaux",
+      "answers": [
+        "12"
+      ]
+    },
+    "9": {
+      "text": "Analyse émotions",
+      "description": "Analyse des émotions humaines",
+      "answers": [
+        "17"
+      ]
+    },
+    "10": {
+      "text": "Automatisation saisie factures",
+      "description": "Automatisation de la saisie des factures",
+      "answers": [
+        "1",
+        "2"
+      ]
+    },
+    "11": {
+      "text": "Calcul automatique",
+      "description": "Calculs automatiques divers",
+      "answers": [
+        "2",
+        "8"
+      ]
+    },
+    "12": {
+      "text": "Calcul charges",
+      "description": "Calcul de charges",
+      "answers": [
+        "2",
+        "8"
+      ]
+    },
+    "13": {
+      "text": "Calcul découpes bois",
+      "description": "Calcul de découpes pour le bois",
+      "answers": [
+        "8"
+      ]
+    },
+    "14": {
+      "text": "Calcul quantités peinture",
+      "description": "Calcul des quantités de peinture nécessaires",
+      "answers": [
+        "8"
+      ]
+    },
+    "15": {
+      "text": "Classification automatique image",
+      "description": "Classification automatique d'images",
+      "answers": [
+        "18"
+      ]
+    },
+    "16": {
+      "text": "Composition florale",
+      "description": "Composition florale",
+      "answers": [
+        "17"
+      ]
+    },
+    "17": {
+      "text": "Correction automatique",
+      "description": "Correction automatique de textes",
+      "answers": [
+        "3"
+      ]
+    },
+    "18": {
+      "text": "Correction devoirs automatique",
+      "description": "Correction automatique de devoirs scolaires",
+      "answers": [
+        "4"
+      ]
+    },
+    "19": {
+      "text": "Création menus automatique",
+      "description": "Création automatique de menus personnalisés",
+      "answers": [
+        "5"
+      ]
+    },
+    "20": {
+      "text": "Cuisson optimisée",
+      "description": "Cuisson optimisée des aliments",
+      "answers": [
+        "15"
+      ]
+    },
+    "21": {
+      "text": "Diagnostic IA",
+      "description": "Diagnostic de systèmes IA",
+      "answers": [
+        "20"
+      ]
+    },
+    "22": {
+      "text": "Diagnostic bruit",
+      "description": "Diagnostic de bruits anormaux",
+      "answers": [
+        "19"
+      ]
+    },
+    "23": {
+      "text": "Diagnostic fuites murs",
+      "description": "Diagnostic de fuites dans les murs",
+      "answers": [
+        "13",
+        "16"
+      ]
+    },
+    "24": {
+      "text": "Diagnostic pannes appareils",
+      "description": "Diagnostic de pannes d'appareils",
+      "answers": [
+        "7",
+        "13"
+      ]
+    },
+    "25": {
+      "text": "Diagnostic plantes",
+      "description": "Diagnostic de maladies des plantes",
+      "answers": [
+        "7",
+        "13"
+      ]
+    },
+    "26": {
+      "text": "Détection caries",
+      "description": "Détection de caries dentaires",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "27": {
+      "text": "Détection détresse",
+      "description": "Détection de signes de détresse",
+      "answers": []
+    },
+    "28": {
+      "text": "Détection maladies cultures",
+      "description": "Détection de maladies dans les cultures agricoles",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "29": {
+      "text": "Détection troubles",
+      "description": "Détection de troubles médicaux",
+      "answers": [
+        "12",
+        "16",
+        "17"
+      ]
+    },
+    "30": {
+      "text": "Explication enfants",
+      "description": "Explication de concepts aux enfants",
+      "answers": [
+        "7"
+      ]
+    },
+    "31": {
+      "text": "Génération palettes couleurs",
+      "description": "Génération de palettes de couleurs",
+      "answers": [
+        "9"
+      ]
+    },
+    "32": {
+      "text": "Identification pièces",
+      "description": "Identification de pièces",
+      "answers": [
+        "5",
+        "18"
+      ]
+    },
+    "33": {
+      "text": "Identifier IA automatique",
+      "description": "Identification automatique de systèmes IA",
+      "answers": [
+        "20"
+      ]
+    },
+    "34": {
+      "text": "Localisation pannes",
+      "description": "Localisation de pannes techniques",
+      "answers": [
+        "19"
+      ]
+    },
+    "35": {
+      "text": "Menus personnalisés",
+      "description": "Menus personnalisés selon goûts",
+      "answers": [
+        "5"
+      ]
+    },
+    "36": {
+      "text": "Mémorisation préférences clients",
+      "description": "Mémorisation des préférences des clients",
+      "answers": [
+        "1",
+        "2"
+      ]
+    },
+    "37": {
+      "text": "Navigation trajets rapides",
+      "description": "Navigation pour trajets rapides",
+      "answers": [
+        "19"
+      ]
+    },
+    "38": {
+      "text": "Nuances culturelles",
+      "description": "Analyse des nuances culturelles",
+      "answers": [
+        "17"
+      ]
+    },
+    "39": {
+      "text": "Optimisation circuits électriques",
+      "description": "Optimisation de circuits électriques",
+      "answers": [
+        "3"
+      ]
+    },
+    "40": {
+      "text": "Optimisation découpe",
+      "description": "Optimisation de la découpe de matériaux",
+      "answers": [
+        "3"
+      ]
+    },
+    "41": {
+      "text": "Optimisation horaires bus",
+      "description": "Optimisation des horaires de bus",
+      "answers": [
+        "6"
+      ]
+    },
+    "42": {
+      "text": "Optimisation livraison",
+      "description": "Optimisation des livraisons",
+      "answers": [
+        "6"
+      ]
+    },
+    "43": {
+      "text": "Optimisation trajets",
+      "description": "Optimisation des trajets",
+      "answers": [
+        "6"
+      ]
+    },
+    "44": {
+      "text": "Personnalisation exercices rééducation",
+      "description": "Personnalisation des exercices de rééducation",
+      "answers": [
+        "12"
+      ]
+    },
+    "45": {
+      "text": "Planification arrosage météo",
+      "description": "Planification de l'arrosage selon la météo",
+      "answers": [
+        "1"
+      ]
+    },
+    "46": {
+      "text": "Planification tournées",
+      "description": "Planification de tournées",
+      "answers": [
+        "6"
+      ]
+    },
+    "47": {
+      "text": "Prédiction commandes",
+      "description": "Prédiction des commandes clients",
+      "answers": [
+        "13",
+        "21"
+      ]
+    },
+    "48": {
+      "text": "Prédiction embouteillages traffic",
+      "description": "Prédiction des embouteillages dans le traffic",
+      "answers": [
+        "13",
+        "21"
+      ]
+    },
+    "49": {
+      "text": "Prédiction risques incendie",
+      "description": "Prédiction des risques d'incendie",
+      "answers": [
+        "16",
+        "21"
+      ]
+    },
+    "50": {
+      "text": "Quiz adaptatifs",
+      "description": "Quiz adaptatifs selon niveau",
+      "answers": [
+        "9"
+      ]
+    },
+    "51": {
+      "text": "Rappel médicaments",
+      "description": "Rappel pour prise de médicaments",
+      "answers": [
+        "1",
+        "12"
+      ]
+    },
+    "52": {
+      "text": "Recettes viande",
+      "description": "Recettes avec viande",
+      "answers": [
+        "15"
+      ]
+    },
+    "53": {
+      "text": "Recherche juridique",
+      "description": "Recherche juridique complexe",
+      "answers": [
+        "5"
+      ]
+    },
+    "54": {
+      "text": "Recommendation coupes visage",
+      "description": "Recommandation de coupes de cheveux selon forme du visage",
+      "answers": [
+        "9",
+        "11",
+        "14"
+      ]
+    },
+    "55": {
+      "text": "Recommandation livres goûts",
+      "description": "Recommandation de livres selon goûts",
+      "answers": [
+        "9",
+        "11",
+        "14"
+      ]
+    },
+    "56": {
+      "text": "Recommandation produits style",
+      "description": "Recommandation de produits selon style",
+      "answers": [
+        "9",
+        "11",
+        "14"
+      ]
+    },
+    "57": {
+      "text": "Retouche photos mariage",
+      "description": "Retouche de photos de mariage",
+      "answers": [
+        "9"
+      ]
+    },
+    "58": {
+      "text": "Résumé cours",
+      "description": "Résumé de cours scolaires",
+      "answers": [
+        "1"
+      ]
+    },
+    "59": {
+      "text": "Résumé juridique",
+      "description": "Résumé de documents juridiques",
+      "answers": [
+        "1"
+      ]
+    },
+    "60": {
+      "text": "Suggestion menus",
+      "description": "Suggestion de menus",
+      "answers": [
+        "14"
+      ]
+    },
+    "61": {
+      "text": "Surveillance contractions",
+      "description": "Surveillance des contractions musculaires",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "62": {
+      "text": "Surveillance rythme cardiaque",
+      "description": "Surveillance du rythme cardiaque",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "63": {
+      "text": "Surveillance signes vitaux",
+      "description": "Surveillance des signes vitaux",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "64": {
+      "text": "Traduction animal",
+      "description": "Traduction des sons animaux",
+      "answers": [
+        "13"
+      ]
+    },
+    "65": {
+      "text": "Transcription interviews",
+      "description": "Transcription automatique d'interviews",
+      "answers": [
+        "1"
+      ]
+    },
+    "66": {
+      "text": "Transcription réunions automatique",
+      "description": "Transcription automatique de réunions",
+      "answers": [
+        "1"
+      ]
+    },
+    "67": {
+      "text": "Vérification interactions médicaments",
+      "description": "Vérification des interactions entre médicaments",
+      "answers": [
+        "12",
+        "16"
+      ]
+    },
+    "68": {
+      "text": "Éclairage optimal",
+      "description": "Environnement d'éclairage optimal",
+      "answers": [
+        "3",
+        "11"
+      ]
+    },
+    "69": {
+      "text": "prédire produits populaires",
+      "description": "Prédiction des produits populaires",
+      "answers": [
+        "21"
+      ]
+    },
+    "70": {
+      "text": "identifier fuites caméra",
+      "description": "Identification de fuites via caméra",
+      "answers": [
+        "18"
+      ]
+    },
+    "71": {
+      "text": "planifier traitements orthodontiques",
+      "description": "Planification de traitements orthodontiques",
+      "answers": [
+        "12"
+      ]
+    },
+    "72": {
+      "text": "catégoriser automatiquement factures",
+      "description": "Catégorisation automatique des factures",
+      "answers": [
+        "1"
+      ]
+    },
+    "73": {
+      "text": "créer menus équilibrés",
+      "description": "Création de menus équilibrés",
+      "answers": [
+        "11",
+        "15"
+      ]
+    },
+    "74": {
+      "text": "générer logos brief",
+      "description": "Génération de logos à partir d'un brief",
+      "answers": [
+        "10"
+      ]
+    },
+    "75": {
+      "text": "diagnostiquer pannes reconnaissance",
+      "description": "Diagnostic de pannes de systèmes de reconnaissance",
+      "answers": [
+        "19"
+      ]
+    },
+    "76": {
+      "text": "retoucher portraits automatiquement",
+      "description": "Retouche automatique de portraits",
+      "answers": [
+        "10"
+      ]
+    },
+    "77": {
+      "text": "optimiser trajets trafic",
+      "description": "Optimisation des trajets en fonction du trafic",
+      "answers": [
+        "6"
+      ]
+    },
+    "78": {
+      "text": "identifier maladies plantes",
+      "description": "Identification de maladies des plantes",
+      "answers": [
+        "12"
+      ]
+    },
+    "79": {
+      "text": "adapter designs tendances",
+      "description": "Adaptation de designs selon les tendances",
+      "answers": [
+        "11",
+        "14"
+      ]
+    },
+    "80": {
+      "text": "analyser humeur voix",
+      "description": "Analyse de l'humeur à partir de la voix",
+      "answers": [
+        "17"
+      ]
+    },
+    "81": {
+      "text": "calculer trajet économique",
+      "description": "Calcul d'un trajet économique",
+      "answers": [
+        "6"
+      ]
+    },
+    "82": {
+      "text": "composer mélodies styles",
+      "description": "Composition de mélodies selon styles",
+      "answers": [
+        "10"
+      ]
+    },
+    "83": {
+      "text": "diagnostiquer pannes électriques",
+      "description": "Diagnostic de pannes électriques",
+      "answers": [
+        "19"
+      ]
+    },
+    "84": {
+      "text": "détecter caries radiographies",
+      "description": "Détection de caries sur radiographies",
+      "answers": [
+        "12"
+      ]
+    },
+    "85": {
+      "text": "générer plans maison",
+      "description": "Génération de plans de maison",
+      "answers": [
+        "10"
+      ]
+    },
+    "86": {
+      "text": "gérer réservations automatiquement",
+      "description": "Gestion automatique des réservations",
+      "answers": [
+        "16"
+      ]
+    },
+    "87": {
+      "text": "identifier problèmes moteur",
+      "description": "Identification de problèmes moteur",
+      "answers": [
+        "19"
+      ]
+    },
+    "88": {
+      "text": "optimiser commandes affluence",
+      "description": "Optimisation des commandes selon l'affluence",
+      "answers": [
+        "6"
+      ]
+    },
+    "89": {
+      "text": "planifier horaires garde",
+      "description": "Planification des horaires de garde",
+      "answers": [
+        "6"
+      ]
+    },
+    "90": {
+      "text": "rechercher jurisprudence rapidement",
+      "description": "Recherche rapide de jurisprudence",
+      "answers": [
+        "13"
+      ]
+    },
+    "91": {
+      "text": "recommander produits clients",
+      "description": "Recommandation de produits aux clients",
+      "answers": [
+        "11"
+      ]
+    },
+    "92": {
+      "text": "traduire documents techniques",
+      "description": "Traduction de documents techniques",
+      "answers": [
+        "3"
+      ]
+    }
+  },
+  "answers": {
+    "1": {
+      "text": "Tache facile, donc efficace. # Dans ce genre de cas, l'IA excelle vraiment et peut grandement accélérer le travail humain.",
+      "questions": [
+        "10",
+        "36",
+        "45",
+        "51",
+        "58",
+        "59",
+        "65",
+        "66",
+        "72"
+      ]
+    },
+    "2": {
+      "text": "Tache Rebarbative, donc utile. # Peut vraiment faire gagner du temps et de l'énergie sur des tâches répétitives et ennuyeuses, c'est cool.",
+      "questions": [
+        "10",
+        "36"
+      ]
+    },
+    "3": {
+      "text": "Bof. Sur le papier c'est pas mal, mais dans les faits... # Assez rapidement l'IA va donner un résultat plus ou moins correct, mais pour un résultat vraiment bon, il faudra énormément d'efforts. C'est un concept qui revient souvent en mathématique, pour avoir un modèle efficace à disons 60%, c'est facile, mais plus on veut s'approcher des 100%, plus l'effort devient immense, et on atteint jamais 100%.",
+      "questions": [
+        "17",
+        "39",
+        "40",
+        "68",
+        "92"
+      ]
+    },
+    "4": {
+      "text": "Tache simple, mais vous êtes pas sensés utiliser l'IA pour ça # La tricherie est facilement repérable on va pas se mentir, à vous de voir.",
+      "questions": [
+        "18"
+      ]
+    },
+    "5": {
+      "text": "Tache complexe, peu aider. # Ça ne va pas faire tout le boulot à votre place, mais en tant qu'assistant, c'est pas mal du tout.",
+      "questions": [
+        "19",
+        "32",
+        "35",
+        "53"
+      ]
+    },
+    "6": {
+      "text": "Tache demandant un algo mathématiquement complexe, donc utile mais pas suffisant. # L'IA peut essayer de vous sortir un résultat seule, mais je miserais pas ma vie dessus, ça risque d'être un peu limité",
+      "questions": [
+        "41",
+        "42",
+        "43",
+        "46",
+        "77",
+        "81",
+        "88",
+        "89"
+      ]
+    },
+    "7": {
+      "text": "Tache en général simple, donc l'IA est utile, mais peut être complexe selon le contexte. # C'est au cas par cas, l'IA pourra sûrement aider à un certain degré.",
+      "questions": [
+        "24",
+        "25",
+        "30"
+      ]
+    },
+    "8": {
+      "text": "Tache facile, si confiance en l'IA pour faire des calculs. # Sous entendu, ne lui faites pas trop confiance. Par exemple, encore aujourd'hui, si vous demandez à une IA de vous donner un nombre aléatoire (sans rien préciser), 1 fois sur 2 elle va vous sortir précisément 42. Donc méfiez vous du bullshit possible.",
+      "questions": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "9": {
+      "text": "Tache créative facile, donc utile si on accepte un résultat médiocre. # Oui l'IA peut le faire, mais la question est plutôt de savoir si vous êtes prêt à accepter un résultat robotique, souvent moche, cheap, qui renverra l'image que vous n'en avez rien à faire de produire de la qualité, le tout pour une économie discutable.",
+      "questions": [
+        "31",
+        "50",
+        "54",
+        "55",
+        "56",
+        "57"
+      ]
+    },
+    "10": {
+      "text": "Tache créative complexe, donc utile si on accepte un résultat extrêmement nul et moche. # Oui l'IA peut le faire, mais le résultat sera dénué de tout intérêt, voir carrément laid. Si vous voulez économiser quelques euros pour un résultat médiocre qui fera bien comprendre au public ciblé que vous acceptez la médiocrité, foncez. Sinon, payez quelqu'un.",
+      "questions": [
+        "74",
+        "76",
+        "82",
+        "85"
+      ]
+    },
+    "11": {
+      "text": "Reco culturelle/contextuelle simple, donc utile si on accepte un résultat médiocre. # L'IA va robotiquement vous sortir des recommandations basées sur des tendances générales, ça sera toujours moins bien qu'une recommandation humaine, mais bon, ça peut dépanner.",
+      "questions": [
+        "54",
+        "55",
+        "56",
+        "68",
+        "73",
+        "79",
+        "91"
+      ]
+    },
+    "12": {
+      "text": "Médical, risqué. # C'est un gros débat. De manière générale, à prendre vraiment avec des pincettes. L'IA peut amener des pistes intéressantes, mais peut aussi raconter n'importe quoi de façon très convaincante. Vu le risque en cas d'erreur, évitez. ",
+      "questions": [
+        "1",
+        "6",
+        "7",
+        "8",
+        "26",
+        "28",
+        "29",
+        "44",
+        "51",
+        "61",
+        "62",
+        "63",
+        "67",
+        "71",
+        "78",
+        "84"
+      ]
+    },
+    "13": {
+      "text": "L'IA peut très facilement bullshit. # L'IA va vous sortir quelques chose de crédible, mais sans aucune garantie de véracité. Elle est programmée pour faire du vraisemblable, pas du vrai.",
+      "questions": [
+        "7",
+        "23",
+        "24",
+        "25",
+        "47",
+        "48",
+        "64",
+        "90"
+      ]
+    },
+    "14": {
+      "text": "Le résultat sera trop robotique. # L'IA peut faire ça, mais le résultat manquera cruellement de finesse et d'adaptation aux goûts humains subtils.",
+      "questions": [
+        "2",
+        "54",
+        "55",
+        "56",
+        "60",
+        "79"
+      ]
+    },
+    "15": {
+      "text": "Recettes simples, plutôt efficace. # Pour des recettes basiques, l'IA peut faire le job sans trop de problème.",
+      "questions": [
+        "3",
+        "20",
+        "52",
+        "73"
+      ]
+    },
+    "16": {
+      "text": "Très gros problème en cas d'erreur, donc fuyez. # Même dans l'hypothèse où l'IA répond juste 99% du temps (ce qui est déjà très optimiste), le 1% d'erreurs peut avoir des conséquences dramatiques. Donc fuyez.",
+      "questions": [
+        "4",
+        "23",
+        "26",
+        "28",
+        "29",
+        "49",
+        "61",
+        "62",
+        "63",
+        "67",
+        "86"
+      ]
+    },
+    "17": {
+      "text": "Comportement/Demande fondamentalement humain, mauvais pour l'IA. # L'IA reste un modèle mathématique, on y est pas encore.",
+      "questions": [
+        "5",
+        "9",
+        "16",
+        "29",
+        "38",
+        "80"
+      ]
+    },
+    "18": {
+      "text": "Dépend du contexte. # Difficile de juger sans contexte précis.",
+      "questions": [
+        "15",
+        "32",
+        "70"
+      ]
+    },
+    "19": {
+      "text": "Resultat imprévisible. # Peut être très bon ou complètement à côté de la plaque, difficile à dire.",
+      "questions": [
+        "22",
+        "34",
+        "37",
+        "75",
+        "83",
+        "87"
+      ]
+    },
+    "20": {
+      "text": "IA sur IA, mauvaise idée. # Ne demandez pas une IA de diagnostiquer une autre IA, le résultat est biaisé et peu fiable.",
+      "questions": [
+        "21",
+        "33"
+      ]
+    },
+    "21": {
+      "text": "Prédiction sur base de rien de concret, donc mauvais # L'IA ne peut pas prédire les choses, elle répond ce qui lui semble vraisemblable, en terme de prédiction àa revient à dire un truc au hasard mais qui sonne bien.",
+      "questions": [
+        "47",
+        "48",
+        "49",
+        "69"
+      ]
+    }
+  }
+}
