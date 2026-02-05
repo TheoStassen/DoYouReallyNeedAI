@@ -5,12 +5,6 @@ import os
 import numpy as np
 from qa_store import QuestionAnswerStore
 
-# call copilot queries for debugging (non-blocking safely)
-try:
-    from copilot_use import copilot_query
-except Exception:
-    copilot_query = None
-
 BASE_DIR = os.path.dirname(__file__)
 STORE_PATH = os.path.join(BASE_DIR, "data/qa_store.json")
 
@@ -59,74 +53,101 @@ else:
     app.logger.propagate = True
     logging.getLogger('werkzeug').setLevel(loglevel)
 
-# --- New: fast local matcher using TF-IDF + cosine similarity ---
+# --- New: fast semantic matcher using Sentence-Transformers (SBERT) ---
 try:
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.metrics.pairwise import linear_kernel
-    SKLEARN_AVAILABLE = True
+    from sentence_transformers import SentenceTransformer, util as st_util
+    SBERT_AVAILABLE = True
 except Exception:
-    SKLEARN_AVAILABLE = False
+    SBERT_AVAILABLE = False
 
-# Prepare data for vectorizer
+# Prepare data for semantic search
 _question_ids = []
 _question_texts = []
 for qid, qobj in store._data.get('questions', {}).items():
     _question_ids.append(qid)
-    _question_texts.append((qobj.get('text') or '').strip())
+    # Combine text and description for richer semantic matching
+    text = (qobj.get('text') or '').strip()
+    desc = (qobj.get('description') or '').strip()
+    combined = f"{text}. {desc}" if desc else text
+    _question_texts.append(combined)
 
-_vectorizer = None
-_question_tfidf = None
-if SKLEARN_AVAILABLE and _question_texts:
+_sbert_model = None
+_question_embeddings = None
+if SBERT_AVAILABLE and _question_texts:
     try:
-        _vectorizer = TfidfVectorizer(stop_words='english')
-        _question_tfidf = _vectorizer.fit_transform(_question_texts)
-        app.logger.debug('Built TF-IDF matrix for %d questions', len(_question_texts))
-    except Exception:
-        _vectorizer = None
-        _question_tfidf = None
+        # Use a lightweight multilingual model that works well for French & English
+        # 'paraphrase-multilingual-MiniLM-L12-v2' is ~420MB, fast, and accurate
+        # Alternative: 'all-MiniLM-L6-v2' (English only, smaller ~80MB)
+        _sbert_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+        _question_embeddings = _sbert_model.encode(_question_texts, convert_to_tensor=True, show_progress_bar=False)
+        app.logger.info('Built SBERT embeddings for %d questions', len(_question_texts))
+    except Exception as e:
+        app.logger.exception('Failed to build SBERT embeddings: %s', e)
+        _sbert_model = None
+        _question_embeddings = None
 
-# Small LRU cache for Copilot responses to avoid repeating expensive calls
+# Small LRU cache for query embeddings to avoid recomputing for repeated queries
 from functools import lru_cache
-import threading
 
 @lru_cache(maxsize=512)
-def _cached_copilot(prompt: str) -> str:
-    if not copilot_query:
-        return ''
-    return copilot_query(prompt)
+def _get_cached_embedding_tuple(query: str):
+    """Cache embeddings for repeated queries. Returns tuple for hashability."""
+    if _sbert_model is None:
+        return None
+    emb = _sbert_model.encode(query, convert_to_tensor=True, show_progress_bar=False)
+    return emb
 
-#
-# # --- New: warm-up Copilot in background to reduce first-call latency ---
-# def _warm_up_copilot():
-#     """Run a silent Copilot call in background to avoid cold-start latency.
-#
-#     This is non-blocking (daemon thread) and failures are logged and ignored.
-#     """
-#     if not copilot_query:
-#         app.logger.debug("Copilot not available; skipping warm-up")
-#         return
-#     try:
-#         app.logger.debug("Starting Copilot warm-up (silent)")
-#         # Minimal prompt and very small max-tokens to keep the call fast.
-#         prompt = " "
-#         try:
-#             # try new signature with extra_args if available
-#             copilot_query(prompt, reset=True,)
-#         except TypeError:
-#             # fallback to older signature
-#             try:
-#                 copilot_query(prompt, reset=True)
-#             except TypeError:
-#                 copilot_query(prompt)
-#         app.logger.debug("Copilot warm-up finished")
-#     except Exception:
-#         app.logger.exception("Copilot warm-up failed (ignored)")
 
-# # start warm-up in a daemon thread so it doesn't block startup
-# try:
-#     threading.Thread(target=_warm_up_copilot, daemon=True).start()
-# except Exception:
-#     app.logger.exception("Failed to start Copilot warm-up thread")
+def semantic_search_questions(query: str, top_k: int = 5):
+    """
+    Find the most semantically similar questions using SBERT embeddings.
+
+    Strategy:
+    - If there's a match > 0.7 and next result is < 0.7: return only that match
+    - If multiple results between 0.5 and 0.7: return up to 3 best in that range
+    - If no result >= 0.5: return the single best match regardless of score
+
+    Returns list of (question_id, similarity_score) tuples.
+    """
+    HIGH_THRESHOLD = 0.7
+    MID_THRESHOLD = 0.5
+
+    if _sbert_model is None or _question_embeddings is None:
+        return []
+
+    query_embedding = _get_cached_embedding_tuple(query)
+    if query_embedding is None:
+        return []
+
+    # Compute cosine similarities
+    cos_scores = st_util.cos_sim(query_embedding, _question_embeddings)[0]
+
+    # Get top-k results sorted by score
+    top_results = cos_scores.topk(k=min(top_k, len(_question_ids)))
+
+    # Build list of (qid, score)
+    all_matches = []
+    for score, idx in zip(top_results.values, top_results.indices):
+        all_matches.append((_question_ids[int(idx)], float(score)))
+
+    if not all_matches:
+        return []
+
+    # Strategy 1: Check if top match is > 0.7 and second is < 0.7
+    if all_matches[0][1] > HIGH_THRESHOLD:
+        if len(all_matches) == 1 or all_matches[1][1] < HIGH_THRESHOLD:
+            # Unique high-quality match - return only this one
+            return [all_matches[0]]
+
+    # Strategy 2: Get all matches between 0.5 and 0.7 (or above)
+    mid_range_matches = [(qid, score) for qid, score in all_matches if score >= MID_THRESHOLD]
+    if mid_range_matches:
+        # Return up to 3 best matches in this range
+        return mid_range_matches[:3]
+
+    # Strategy 3: No match >= 0.5, return the single best match
+    return [all_matches[0]]
+
 
 @app.route("/api/search")
 def api_search():
@@ -168,38 +189,30 @@ def api_search():
 
     app.logger.debug("search time first part: %.2f seconds", time.time() - start_search_time)
 
-    # If Copilot is available, call it as a fallback. Use cached results and simpler prompts.
-    if copilot_query:
+    # Use fast SBERT semantic search as fallback
+    if SBERT_AVAILABLE and _sbert_model is not None:
         try:
-            # First, use a short summarization prompt (fast response expected)
-            start_query_time = time.time()
-            # Simplify prompt; avoid large instructions or mentioning filenames — keep it short and focused
-            prompt = (f"En français, fait un résumé de la question '{q}' en AU PLUS 3 mots, "
-                      f"puis répond EXCLUSIVEMENT l'id entier de la question la plus proche de ce résumé dans data/questions.txt. "
-                      f"Réponds uniquemnt cet ID, sans rien d'autre.")
-            response = _cached_copilot(prompt)
-            q_id = response.strip().split("\n")[-1].strip()
-            app.logger.debug("search time first query: %.2f seconds", time.time() - start_query_time)
-            app.logger.debug("Copilot response  for prompt %r: %s", q, str(response))
+            start_semantic_time = time.time()
+            semantic_results = semantic_search_questions(q, top_k=5)
+            app.logger.debug("SBERT semantic search took: %.3f seconds", time.time() - start_semantic_time)
 
-            if q_id.isdigit() and q_id in store._data.get("questions", {}):
-                qobj = store._data["questions"][q_id]
-                results.append({
-                    "id": q_id,
-                    "text": qobj.get("text", ""),
-                    "description": qobj.get("description", ""),
-                    "answers": store.get_answers_for_question(q_id),
-                })
-            else:
-                app.logger.debug(
-                    "Copilot returned invalid question id %r for prompt %r",
-                    q_id, q)
+            for q_id, score in semantic_results:
+                if q_id in store._data.get("questions", {}):
+                    qobj = store._data["questions"][q_id]
+                    results.append({
+                        "id": q_id,
+                        "text": qobj.get("text", ""),
+                        "description": qobj.get("description", ""),
+                        "answers": store.get_answers_for_question(q_id),
+                        "similarity_score": round(score, 3),
+                    })
+                    app.logger.debug("Matched question id=%s with score=%.3f", q_id, score)
 
-            app.logger.debug('search time for copilot query: %.2f seconds', time.time() - starting_time)
-            return jsonify(results)
-
+            if results:
+                app.logger.debug('Total search time: %.3f seconds', time.time() - starting_time)
+                return jsonify(results)
         except Exception as e:
-            app.logger.exception("copilot_query failed for prompt %r: %s", q, e)
+            app.logger.exception("SBERT search failed: %s", e)
 
     # final fallback: empty
     return jsonify([])

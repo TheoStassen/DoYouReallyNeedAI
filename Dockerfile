@@ -3,26 +3,11 @@ FROM python:3.11-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# install common tools, Node.js (for copilot CLI), and required certs
+# install common tools and required certs
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-     curl ca-certificates gnupg lsb-release build-essential \
-  && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-  && apt-get install -y nodejs \
+     curl ca-certificates build-essential \
   && rm -rf /var/lib/apt/lists/*
-
-# install GitHub CLI (gh)
-RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-    | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
-    > /etc/apt/sources.list.d/github-cli.list \
-  && apt-get update \
-  && apt-get install -y gh \
-  && rm -rf /var/lib/apt/lists/*
-
-# install Copilot CLI via npm (global)
-RUN npm install  -g @github/copilot
 
 
 WORKDIR /app
@@ -30,6 +15,12 @@ WORKDIR /app
 # copy requirements and install (ensure gunicorn is listed)
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Pre-download the SBERT model during build for faster startup
+# This caches the model in the image so it doesn't download on each container start
+ENV TRANSFORMERS_CACHE=/app/.cache/huggingface
+ENV HF_HOME=/app/.cache/huggingface
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')"
 
 # copy application and entrypoint
 COPY . /app

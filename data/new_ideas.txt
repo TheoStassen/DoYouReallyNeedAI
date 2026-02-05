@@ -1,0 +1,217 @@
+# Questions que des utilisateurs pourraient poser pour savoir si l'IA serait utile
+
+# Création et design
+Est-ce que l'IA peut créer un logo professionnel pour mon entreprise ?
+L'IA peut-elle générer des illustrations pour mon livre ?
+Puis-je utiliser l'IA pour designer mon site web ?
+L'IA peut-elle créer des affiches publicitaires ?
+Est-ce que l'IA peut faire du montage vidéo automatique ?
+L'IA peut-elle composer de la musique originale ?
+Puis-je utiliser l'IA pour créer des animations 3D ?
+L'IA peut-elle générer des mockups de produits ?
+Est-ce que l'IA peut retoucher mes photos automatiquement ?
+L'IA peut-elle créer des effets spéciaux pour mes vidéos ?
+
+# Écriture et contenu
+L'IA peut-elle écrire des articles de blog pour moi ?
+Est-ce que l'IA peut rédiger des descriptions de produits ?
+L'IA peut-elle corriger et améliorer mes textes ?
+Puis-je utiliser l'IA pour écrire des emails professionnels ?
+L'IA peut-elle générer des slogans publicitaires ?
+Est-ce que l'IA peut écrire des scripts vidéo ?
+L'IA peut-elle rédiger des CV et lettres de motivation ?
+Puis-je utiliser l'IA pour traduire des documents ?
+L'IA peut-elle résumer de longs documents ?
+Est-ce que l'IA peut créer des sous-titres automatiquement ?
+
+# Analyse et données
+L'IA peut-elle analyser mes données de vente ?
+Est-ce que l'IA peut prédire les tendances du marché ?
+L'IA peut-elle détecter des anomalies dans mes données ?
+Puis-je utiliser l'IA pour segmenter ma clientèle ?
+L'IA peut-elle optimiser mes prix automatiquement ?
+Est-ce que l'IA peut analyser les sentiments sur les réseaux sociaux ?
+L'IA peut-elle prédire le comportement des clients ?
+Puis-je utiliser l'IA pour détecter la fraude ?
+L'IA peut-elle faire des prévisions météo locales ?
+Est-ce que l'IA peut optimiser mes stocks ?
+
+# Santé et bien-être
+L'IA peut-elle diagnostiquer des maladies ?
+Est-ce que l'IA peut recommander des traitements médicaux ?
+L'IA peut-elle analyser des radios et IRM ?
+Puis-je utiliser l'IA pour suivre ma santé mentale ?
+L'IA peut-elle créer un programme de fitness personnalisé ?
+Est-ce que l'IA peut recommander un régime alimentaire ?
+L'IA peut-elle détecter des symptômes précoces de maladie ?
+Puis-je utiliser l'IA pour gérer mon stress ?
+L'IA peut-elle prédire des crises cardiaques ?
+Est-ce que l'IA peut remplacer un médecin ?
+
+# Éducation et apprentissage
+L'IA peut-elle corriger des copies d'élèves ?
+Est-ce que l'IA peut créer des cours personnalisés ?
+L'IA peut-elle expliquer des concepts mathématiques ?
+Puis-je utiliser l'IA pour apprendre une nouvelle langue ?
+L'IA peut-elle générer des exercices adaptés à mon niveau ?
+Est-ce que l'IA peut tutorer des étudiants ?
+L'IA peut-elle détecter le plagiat ?
+Puis-je utiliser l'IA pour réviser mes examens ?
+L'IA peut-elle créer des quiz interactifs ?
+Est-ce que l'IA peut évaluer des dissertations ?
+
+# Business et productivité
+L'IA peut-elle gérer mon agenda automatiquement ?
+Est-ce que l'IA peut trier mes emails ?
+L'IA peut-elle rédiger des comptes-rendus de réunion ?
+Puis-je utiliser l'IA pour automatiser mes tâches répétitives ?
+L'IA peut-elle créer des présentations PowerPoint ?
+Est-ce que l'IA peut faire ma comptabilité ?
+L'IA peut-elle prédire les ventes futures ?
+Puis-je utiliser l'IA pour recruter des candidats ?
+L'IA peut-elle analyser les performances des employés ?
+Est-ce que l'IA peut optimiser mes processus métier ?
+
+# Service client
+L'IA peut-elle répondre aux questions des clients ?
+Est-ce que l'IA peut remplacer un centre d'appels ?
+L'IA peut-elle détecter les clients mécontents ?
+Puis-je utiliser l'IA pour personnaliser les recommandations ?
+L'IA peut-elle prédire les besoins des clients ?
+Est-ce que l'IA peut gérer les réclamations ?
+L'IA peut-elle créer des FAQ automatiques ?
+Puis-je utiliser l'IA pour le support technique ?
+L'IA peut-elle analyser les avis clients ?
+Est-ce que l'IA peut améliorer la satisfaction client ?
+
+# Juridique et administratif
+L'IA peut-elle rédiger des contrats ?
+Est-ce que l'IA peut analyser des documents juridiques ?
+L'IA peut-elle prédire l'issue d'un procès ?
+Puis-je utiliser l'IA pour faire ma déclaration d'impôts ?
+L'IA peut-elle détecter des clauses abusives ?
+Est-ce que l'IA peut remplacer un avocat ?
+L'IA peut-elle remplir des formulaires administratifs ?
+Puis-je utiliser l'IA pour gérer mes factures ?
+L'IA peut-elle vérifier la conformité légale ?
+Est-ce que l'IA peut rédiger des brevets ?
+
+# Sécurité
+L'IA peut-elle détecter des intrusions informatiques ?
+Est-ce que l'IA peut protéger contre les cyberattaques ?
+L'IA peut-elle reconnaître des visages ?
+Puis-je utiliser l'IA pour surveiller ma maison ?
+L'IA peut-elle détecter des comportements suspects ?
+Est-ce que l'IA peut filtrer les spams ?
+L'IA peut-elle sécuriser mes mots de passe ?
+Puis-je utiliser l'IA pour détecter les deepfakes ?
+L'IA peut-elle prédire les accidents ?
+Est-ce que l'IA peut prévenir les vols ?
+
+# Transport et logistique
+L'IA peut-elle optimiser mes trajets ?
+Est-ce que l'IA peut conduire une voiture ?
+L'IA peut-elle prédire les embouteillages ?
+Puis-je utiliser l'IA pour planifier des livraisons ?
+L'IA peut-elle gérer une flotte de véhicules ?
+Est-ce que l'IA peut optimiser les itinéraires de livraison ?
+L'IA peut-elle prédire les pannes de véhicules ?
+Puis-je utiliser l'IA pour le stationnement automatique ?
+L'IA peut-elle gérer le trafic urbain ?
+Est-ce que l'IA peut remplacer les chauffeurs ?
+
+# Agriculture et environnement
+L'IA peut-elle optimiser l'irrigation des cultures ?
+Est-ce que l'IA peut détecter les maladies des plantes ?
+L'IA peut-elle prédire les récoltes ?
+Puis-je utiliser l'IA pour surveiller la qualité de l'air ?
+L'IA peut-elle détecter la déforestation ?
+Est-ce que l'IA peut optimiser l'utilisation des pesticides ?
+L'IA peut-elle prédire les incendies de forêt ?
+Puis-je utiliser l'IA pour gérer l'élevage ?
+L'IA peut-elle analyser la qualité du sol ?
+Est-ce que l'IA peut prévoir les catastrophes naturelles ?
+
+# Cuisine et alimentation
+L'IA peut-elle suggérer des recettes avec mes ingrédients ?
+Est-ce que l'IA peut créer des menus équilibrés ?
+L'IA peut-elle adapter une recette pour des allergies ?
+Puis-je utiliser l'IA pour calculer les calories ?
+L'IA peut-elle recommander des restaurants ?
+Est-ce que l'IA peut prédire mes goûts culinaires ?
+L'IA peut-elle optimiser ma liste de courses ?
+Puis-je utiliser l'IA pour planifier mes repas ?
+L'IA peut-elle détecter des aliments périmés ?
+Est-ce que l'IA peut cuisiner à ma place ?
+
+# Loisirs et divertissement
+L'IA peut-elle recommander des films ?
+Est-ce que l'IA peut créer des jeux vidéo ?
+L'IA peut-elle écrire des histoires interactives ?
+Puis-je utiliser l'IA pour composer ma playlist ?
+L'IA peut-elle améliorer mes photos de vacances ?
+Est-ce que l'IA peut planifier mes voyages ?
+L'IA peut-elle créer des mèmes ?
+Puis-je utiliser l'IA pour jouer aux échecs ?
+L'IA peut-elle générer des puzzles ?
+Est-ce que l'IA peut remplacer un guide touristique ?
+
+# Relations et communication
+L'IA peut-elle écrire des messages romantiques ?
+Est-ce que l'IA peut m'aider à faire des rencontres ?
+L'IA peut-elle analyser le langage corporel ?
+Puis-je utiliser l'IA pour améliorer ma communication ?
+L'IA peut-elle détecter les mensonges ?
+Est-ce que l'IA peut remplacer un psychologue ?
+L'IA peut-elle écrire des discours de mariage ?
+Puis-je utiliser l'IA pour gérer les conflits ?
+L'IA peut-elle prédire la compatibilité amoureuse ?
+Est-ce que l'IA peut m'aider à me faire des amis ?
+
+# Finance personnelle
+L'IA peut-elle gérer mon budget ?
+Est-ce que l'IA peut recommander des investissements ?
+L'IA peut-elle prédire les cours de la bourse ?
+Puis-je utiliser l'IA pour épargner automatiquement ?
+L'IA peut-elle détecter les dépenses inutiles ?
+Est-ce que l'IA peut négocier mes contrats ?
+L'IA peut-elle optimiser mes impôts ?
+Puis-je utiliser l'IA pour choisir une assurance ?
+L'IA peut-elle prédire ma retraite ?
+Est-ce que l'IA peut m'aider à sortir de la dette ?
+
+# Immobilier
+L'IA peut-elle estimer la valeur d'un bien ?
+Est-ce que l'IA peut trouver l'appartement idéal ?
+L'IA peut-elle prédire les tendances immobilières ?
+Puis-je utiliser l'IA pour décorer mon intérieur ?
+L'IA peut-elle optimiser ma consommation d'énergie ?
+Est-ce que l'IA peut gérer mes locations ?
+L'IA peut-elle détecter des vices cachés ?
+Puis-je utiliser l'IA pour planifier des travaux ?
+L'IA peut-elle améliorer le feng shui de ma maison ?
+Est-ce que l'IA peut remplacer un agent immobilier ?
+
+# Mode et beauté
+L'IA peut-elle recommander des tenues ?
+Est-ce que l'IA peut créer des designs de vêtements ?
+L'IA peut-elle analyser mon type de peau ?
+Puis-je utiliser l'IA pour essayer des vêtements virtuellement ?
+L'IA peut-elle recommander une coiffure ?
+Est-ce que l'IA peut maquiller virtuellement ?
+L'IA peut-elle prédire les tendances mode ?
+Puis-je utiliser l'IA pour trier ma garde-robe ?
+L'IA peut-elle créer des patrons de couture ?
+Est-ce que l'IA peut améliorer mon style ?
+
+# Sport et fitness
+L'IA peut-elle créer un programme d'entraînement ?
+Est-ce que l'IA peut analyser mes performances sportives ?
+L'IA peut-elle corriger ma technique ?
+Puis-je utiliser l'IA pour prédire mes résultats ?
+L'IA peut-elle prévenir les blessures ?
+Est-ce que l'IA peut remplacer un coach sportif ?
+L'IA peut-elle optimiser ma récupération ?
+Puis-je utiliser l'IA pour suivre ma progression ?
+L'IA peut-elle recommander des équipements ?
+Est-ce que l'IA peut analyser les matchs de foot ?

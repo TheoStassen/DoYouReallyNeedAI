@@ -193,7 +193,9 @@
     "27": {
       "text": "Détection détresse",
       "description": "Détection de signes de détresse",
-      "answers": []
+      "answers": [
+        "16"
+      ]
     },
     "28": {
       "text": "Détection maladies cultures",
@@ -671,6 +673,1093 @@
       "answers": [
         "3"
       ]
+    },
+    "93": {
+      "text": "Créer un logo professionnel pour mon entreprise",
+      "description": "Est-ce que l'IA peut créer un logo professionnel pour mon entreprise",
+      "answers": [
+        "10"
+      ]
+    },
+    "94": {
+      "text": "Générer des illustrations pour mon livre",
+      "description": "L'IA peut-elle générer des illustrations pour mon livre",
+      "answers": [
+        "10"
+      ]
+    },
+    "95": {
+      "text": "Designer mon site web",
+      "description": "Puis-je utiliser l'IA pour designer mon site web",
+      "answers": [
+        "10"
+      ]
+    },
+    "96": {
+      "text": "Créer des affiches publicitaires",
+      "description": "L'IA peut-elle créer des affiches publicitaires",
+      "answers": [
+        "10"
+      ]
+    },
+    "97": {
+      "text": "Faire du montage vidéo automatique",
+      "description": "Est-ce que l'IA peut faire du montage vidéo automatique",
+      "answers": [
+        "10"
+      ]
+    },
+    "98": {
+      "text": "Composer de la musique originale",
+      "description": "L'IA peut-elle composer de la musique originale",
+      "answers": [
+        "10"
+      ]
+    },
+    "99": {
+      "text": "Créer des animations 3D",
+      "description": "Puis-je utiliser l'IA pour créer des animations 3D",
+      "answers": [
+        "10"
+      ]
+    },
+    "100": {
+      "text": "Générer des mockups de produits",
+      "description": "L'IA peut-elle générer des mockups de produits",
+      "answers": [
+        "10"
+      ]
+    },
+    "101": {
+      "text": "Créer des effets spéciaux pour mes vidéos",
+      "description": "L'IA peut-elle créer des effets spéciaux pour mes vidéos",
+      "answers": [
+        "10"
+      ]
+    },
+    "102": {
+      "text": "Écrire des articles de blog pour moi",
+      "description": "L'IA peut-elle écrire des articles de blog pour moi",
+      "answers": [
+        "11"
+      ]
+    },
+    "103": {
+      "text": "Écrire des emails professionnels",
+      "description": "Puis-je utiliser l'IA pour écrire des emails professionnels",
+      "answers": [
+        "7"
+      ]
+    },
+    "104": {
+      "text": "Générer des slogans publicitaires",
+      "description": "L'IA peut-elle générer des slogans publicitaires",
+      "answers": [
+        "9"
+      ]
+    },
+    "105": {
+      "text": "Écrire des scripts vidéo",
+      "description": "Est-ce que l'IA peut écrire des scripts vidéo",
+      "answers": [
+        "10"
+      ]
+    },
+    "106": {
+      "text": "Rédiger des CV et lettres de motivation",
+      "description": "L'IA peut-elle rédiger des CV et lettres de motivation",
+      "answers": [
+        "7"
+      ]
+    },
+    "107": {
+      "text": "Résumer de longs documents",
+      "description": "L'IA peut-elle résumer de longs documents",
+      "answers": [
+        "1"
+      ]
+    },
+    "108": {
+      "text": "Créer des sous-titres automatiquement",
+      "description": "Est-ce que l'IA peut créer des sous-titres automatiquement",
+      "answers": [
+        "9"
+      ]
+    },
+    "109": {
+      "text": "Analyser mes données de vente",
+      "description": "L'IA peut-elle analyser mes données de vente",
+      "answers": [
+        "8"
+      ]
+    },
+    "110": {
+      "text": "Détecter des anomalies dans mes données",
+      "description": "L'IA peut-elle détecter des anomalies dans mes données",
+      "answers": [
+        "19"
+      ]
+    },
+    "111": {
+      "text": "Segmenter ma clientèle",
+      "description": "Puis-je utiliser l'IA pour segmenter ma clientèle",
+      "answers": [
+        "7"
+      ]
+    },
+    "112": {
+      "text": "Optimiser mes prix automatiquement",
+      "description": "L'IA peut-elle optimiser mes prix automatiquement",
+      "answers": [
+        "7"
+      ]
+    },
+    "113": {
+      "text": "Prédire le comportement des clients",
+      "description": "L'IA peut-elle prédire le comportement des clients",
+      "answers": [
+        "21"
+      ]
+    },
+    "114": {
+      "text": "Détecter la fraude",
+      "description": "Puis-je utiliser l'IA pour détecter la fraude",
+      "answers": [
+        "7"
+      ]
+    },
+    "115": {
+      "text": "Optimiser mes stocks",
+      "description": "Est-ce que l'IA peut optimiser mes stocks",
+      "answers": [
+        "7"
+      ]
+    },
+    "116": {
+      "text": "Recommander des traitements médicaux",
+      "description": "Est-ce que l'IA peut recommander des traitements médicaux",
+      "answers": [
+        "12"
+      ]
+    },
+    "117": {
+      "text": "Suivre ma santé mentale",
+      "description": "Puis-je utiliser l'IA pour suivre ma santé mentale",
+      "answers": [
+        "12"
+      ]
+    },
+    "118": {
+      "text": "Créer un programme de fitness personnalisé",
+      "description": "L'IA peut-elle créer un programme de fitness personnalisé",
+      "answers": [
+        "12"
+      ]
+    },
+    "119": {
+      "text": "Recommander un régime alimentaire",
+      "description": "Est-ce que l'IA peut recommander un régime alimentaire",
+      "answers": [
+        "12"
+      ]
+    },
+    "120": {
+      "text": "Détecter des symptômes précoces de maladie",
+      "description": "L'IA peut-elle détecter des symptômes précoces de maladie",
+      "answers": [
+        "12"
+      ]
+    },
+    "121": {
+      "text": "Gérer mon stress",
+      "description": "Puis-je utiliser l'IA pour gérer mon stress",
+      "answers": [
+        "12"
+      ]
+    },
+    "122": {
+      "text": "Prédire des crises cardiaques",
+      "description": "L'IA peut-elle prédire des crises cardiaques",
+      "answers": [
+        "12"
+      ]
+    },
+    "123": {
+      "text": "Remplacer un médecin",
+      "description": "Est-ce que l'IA peut remplacer un médecin",
+      "answers": [
+        "12"
+      ]
+    },
+    "124": {
+      "text": "Corriger des copies d'élèves",
+      "description": "L'IA peut-elle corriger des copies d'élèves",
+      "answers": [
+        "7"
+      ]
+    },
+    "125": {
+      "text": "Créer des cours personnalisés",
+      "description": "Est-ce que l'IA peut créer des cours personnalisés",
+      "answers": [
+        "9"
+      ]
+    },
+    "126": {
+      "text": "Expliquer des concepts mathématiques",
+      "description": "L'IA peut-elle expliquer des concepts mathématiques",
+      "answers": [
+        "8"
+      ]
+    },
+    "127": {
+      "text": "Apprendre une nouvelle langue",
+      "description": "Puis-je utiliser l'IA pour apprendre une nouvelle langue",
+      "answers": [
+        "9"
+      ]
+    },
+    "128": {
+      "text": "Générer des exercices adaptés à mon niveau",
+      "description": "L'IA peut-elle générer des exercices adaptés à mon niveau",
+      "answers": [
+        "9"
+      ]
+    },
+    "129": {
+      "text": "Tutorer des étudiants",
+      "description": "Est-ce que l'IA peut tutorer des étudiants",
+      "answers": [
+        "9"
+      ]
+    },
+    "130": {
+      "text": "Détecter le plagiat",
+      "description": "L'IA peut-elle détecter le plagiat",
+      "answers": [
+        "1"
+      ]
+    },
+    "131": {
+      "text": "Réviser mes examens",
+      "description": "Puis-je utiliser l'IA pour réviser mes examens",
+      "answers": [
+        "1"
+      ]
+    },
+    "132": {
+      "text": "Évaluer des dissertations",
+      "description": "Est-ce que l'IA peut évaluer des dissertations",
+      "answers": [
+        "17"
+      ]
+    },
+    "133": {
+      "text": "Gérer mon agenda automatiquement",
+      "description": "L'IA peut-elle gérer mon agenda automatiquement",
+      "answers": [
+        "1"
+      ]
+    },
+    "134": {
+      "text": "Trier mes emails",
+      "description": "Est-ce que l'IA peut trier mes emails",
+      "answers": [
+        "1"
+      ]
+    },
+    "135": {
+      "text": "Créer des présentations PowerPoint",
+      "description": "L'IA peut-elle créer des présentations PowerPoint",
+      "answers": [
+        "1"
+      ]
+    },
+    "136": {
+      "text": "Faire ma comptabilité",
+      "description": "Est-ce que l'IA peut faire ma comptabilité",
+      "answers": [
+        "1"
+      ]
+    },
+    "137": {
+      "text": "Recruter des candidats",
+      "description": "Puis-je utiliser l'IA pour recruter des candidats",
+      "answers": [
+        "7"
+      ]
+    },
+    "138": {
+      "text": "Analyser les performances des employés",
+      "description": "L'IA peut-elle analyser les performances des employés",
+      "answers": [
+        "7"
+      ]
+    },
+    "139": {
+      "text": "Optimiser mes processus métier",
+      "description": "Est-ce que l'IA peut optimiser mes processus métier",
+      "answers": [
+        "5"
+      ]
+    },
+    "140": {
+      "text": "Répondre aux questions des clients",
+      "description": "L'IA peut-elle répondre aux questions des clients",
+      "answers": [
+        "2"
+      ]
+    },
+    "141": {
+      "text": "Remplacer un centre d'appels",
+      "description": "Est-ce que l'IA peut remplacer un centre d'appels",
+      "answers": [
+        "2"
+      ]
+    },
+    "142": {
+      "text": "Détecter les clients mécontents",
+      "description": "L'IA peut-elle détecter les clients mécontents",
+      "answers": [
+        "7"
+      ]
+    },
+    "143": {
+      "text": "Personnaliser les recommandations",
+      "description": "Puis-je utiliser l'IA pour personnaliser les recommandations",
+      "answers": [
+        "11"
+      ]
+    },
+    "144": {
+      "text": "Prédire les besoins des clients",
+      "description": "L'IA peut-elle prédire les besoins des clients",
+      "answers": [
+        "11"
+      ]
+    },
+    "145": {
+      "text": "Gérer les réclamations",
+      "description": "Est-ce que l'IA peut gérer les réclamations",
+      "answers": [
+        "2"
+      ]
+    },
+    "146": {
+      "text": "Le support technique",
+      "description": "Puis-je utiliser l'IA pour le support technique",
+      "answers": [
+        "2"
+      ]
+    },
+    "147": {
+      "text": "Analyser les avis clients",
+      "description": "L'IA peut-elle analyser les avis clients",
+      "answers": [
+        "1"
+      ]
+    },
+    "148": {
+      "text": "Améliorer la satisfaction client",
+      "description": "Est-ce que l'IA peut améliorer la satisfaction client",
+      "answers": [
+        "18"
+      ]
+    },
+    "149": {
+      "text": "Rédiger des contrats",
+      "description": "L'IA peut-elle rédiger des contrats",
+      "answers": [
+        "5"
+      ]
+    },
+    "150": {
+      "text": "Analyser des documents juridiques",
+      "description": "Est-ce que l'IA peut analyser des documents juridiques",
+      "answers": [
+        "5"
+      ]
+    },
+    "151": {
+      "text": "Prédire l'issue d'un procès",
+      "description": "L'IA peut-elle prédire l'issue d'un procès",
+      "answers": [
+        "21"
+      ]
+    },
+    "152": {
+      "text": "Faire ma déclaration d'impôts",
+      "description": "Puis-je utiliser l'IA pour faire ma déclaration d'impôts",
+      "answers": [
+        "2"
+      ]
+    },
+    "153": {
+      "text": "Détecter des clauses abusives",
+      "description": "L'IA peut-elle détecter des clauses abusives",
+      "answers": [
+        "7"
+      ]
+    },
+    "154": {
+      "text": "Remplacer un avocat",
+      "description": "Est-ce que l'IA peut remplacer un avocat",
+      "answers": [
+        "17"
+      ]
+    },
+    "155": {
+      "text": "Remplir des formulaires administratifs",
+      "description": "L'IA peut-elle remplir des formulaires administratifs",
+      "answers": [
+        "2"
+      ]
+    },
+    "156": {
+      "text": "Vérifier la conformité légale",
+      "description": "L'IA peut-elle vérifier la conformité légale",
+      "answers": [
+        "13"
+      ]
+    },
+    "157": {
+      "text": "Rédiger des brevets",
+      "description": "Est-ce que l'IA peut rédiger des brevets",
+      "answers": [
+        "7"
+      ]
+    },
+    "158": {
+      "text": "Détecter des intrusions informatiques",
+      "description": "L'IA peut-elle détecter des intrusions informatiques",
+      "answers": [
+        "16"
+      ]
+    },
+    "159": {
+      "text": "Protéger contre les cyberattaques",
+      "description": "Est-ce que l'IA peut protéger contre les cyberattaques",
+      "answers": [
+        "16"
+      ]
+    },
+    "160": {
+      "text": "Reconnaître des visages",
+      "description": "L'IA peut-elle reconnaître des visages",
+      "answers": [
+        "19"
+      ]
+    },
+    "161": {
+      "text": "Surveiller ma maison",
+      "description": "Puis-je utiliser l'IA pour surveiller ma maison",
+      "answers": [
+        "22"
+      ]
+    },
+    "162": {
+      "text": "Détecter des comportements suspects",
+      "description": "L'IA peut-elle détecter des comportements suspects",
+      "answers": [
+        "22"
+      ]
+    },
+    "163": {
+      "text": "Filtrer les spams",
+      "description": "Est-ce que l'IA peut filtrer les spams",
+      "answers": [
+        "2"
+      ]
+    },
+    "164": {
+      "text": "Sécuriser mes mots de passe",
+      "description": "L'IA peut-elle sécuriser mes mots de passe",
+      "answers": [
+        "16"
+      ]
+    },
+    "165": {
+      "text": "Détecter les deepfakes",
+      "description": "Puis-je utiliser l'IA pour détecter les deepfakes",
+      "answers": [
+        "19"
+      ]
+    },
+    "166": {
+      "text": "Prédire les accidents",
+      "description": "L'IA peut-elle prédire les accidents",
+      "answers": [
+        "21"
+      ]
+    },
+    "167": {
+      "text": "Prévenir les vols",
+      "description": "Est-ce que l'IA peut prévenir les vols",
+      "answers": [
+        "21"
+      ]
+    },
+    "168": {
+      "text": "Conduire une voiture",
+      "description": "Est-ce que l'IA peut conduire une voiture",
+      "answers": [
+        "22"
+      ]
+    },
+    "169": {
+      "text": "Gérer une flotte de véhicules",
+      "description": "L'IA peut-elle gérer une flotte de véhicules",
+      "answers": [
+        "22"
+      ]
+    },
+    "170": {
+      "text": "Prédire les pannes de véhicules",
+      "description": "L'IA peut-elle prédire les pannes de véhicules",
+      "answers": [
+        "21"
+      ]
+    },
+    "171": {
+      "text": "Le stationnement automatique",
+      "description": "Puis-je utiliser l'IA pour le stationnement automatique",
+      "answers": [
+        "22"
+      ]
+    },
+    "172": {
+      "text": "Remplacer les chauffeurs",
+      "description": "Est-ce que l'IA peut remplacer les chauffeurs",
+      "answers": [
+        "22"
+      ]
+    },
+    "173": {
+      "text": "Optimiser l'irrigation des cultures",
+      "description": "L'IA peut-elle optimiser l'irrigation des cultures",
+      "answers": [
+        "5"
+      ]
+    },
+    "174": {
+      "text": "Prédire les récoltes",
+      "description": "L'IA peut-elle prédire les récoltes",
+      "answers": [
+        "5"
+      ]
+    },
+    "175": {
+      "text": "Surveiller la qualité de l'air",
+      "description": "Puis-je utiliser l'IA pour surveiller la qualité de l'air",
+      "answers": [
+        "5"
+      ]
+    },
+    "176": {
+      "text": "Détecter la déforestation",
+      "description": "L'IA peut-elle détecter la déforestation",
+      "answers": [
+        "5"
+      ]
+    },
+    "177": {
+      "text": "Optimiser l'utilisation des pesticides",
+      "description": "Est-ce que l'IA peut optimiser l'utilisation des pesticides",
+      "answers": [
+        "5"
+      ]
+    },
+    "178": {
+      "text": "Gérer l'élevage",
+      "description": "Puis-je utiliser l'IA pour gérer l'élevage",
+      "answers": [
+        "5"
+      ]
+    },
+    "179": {
+      "text": "Analyser la qualité du sol",
+      "description": "L'IA peut-elle analyser la qualité du sol",
+      "answers": [
+        "5"
+      ]
+    },
+    "180": {
+      "text": "Prévoir les catastrophes naturelles",
+      "description": "Est-ce que l'IA peut prévoir les catastrophes naturelles",
+      "answers": [
+        "5",
+        "21"
+      ]
+    },
+    "181": {
+      "text": "Suggérer des recettes avec mes ingrédients",
+      "description": "L'IA peut-elle suggérer des recettes avec mes ingrédients",
+      "answers": [
+        "15"
+      ]
+    },
+    "182": {
+      "text": "Calculer les calories",
+      "description": "Puis-je utiliser l'IA pour calculer les calories",
+      "answers": [
+        "12"
+      ]
+    },
+    "183": {
+      "text": "Recommander des restaurants",
+      "description": "L'IA peut-elle recommander des restaurants",
+      "answers": [
+        "14"
+      ]
+    },
+    "184": {
+      "text": "Prédire mes goûts culinaires",
+      "description": "Est-ce que l'IA peut prédire mes goûts culinaires",
+      "answers": [
+        "14"
+      ]
+    },
+    "185": {
+      "text": "Optimiser ma liste de courses",
+      "description": "L'IA peut-elle optimiser ma liste de courses",
+      "answers": [
+        "15"
+      ]
+    },
+    "186": {
+      "text": "Planifier mes repas",
+      "description": "Puis-je utiliser l'IA pour planifier mes repas",
+      "answers": [
+        "15"
+      ]
+    },
+    "187": {
+      "text": "Détecter des aliments périmés",
+      "description": "L'IA peut-elle détecter des aliments périmés",
+      "answers": [
+        "13"
+      ]
+    },
+    "188": {
+      "text": "Cuisiner à ma place",
+      "description": "Est-ce que l'IA peut cuisiner à ma place",
+      "answers": [
+        "22"
+      ]
+    },
+    "189": {
+      "text": "Recommander des films",
+      "description": "L'IA peut-elle recommander des films",
+      "answers": [
+        "11"
+      ]
+    },
+    "190": {
+      "text": "Créer des jeux vidéo",
+      "description": "Est-ce que l'IA peut créer des jeux vidéo",
+      "answers": [
+        "10"
+      ]
+    },
+    "191": {
+      "text": "Écrire des histoires interactives",
+      "description": "L'IA peut-elle écrire des histoires interactives",
+      "answers": [
+        "10"
+      ]
+    },
+    "192": {
+      "text": "Composer ma playlist",
+      "description": "Puis-je utiliser l'IA pour composer ma playlist",
+      "answers": [
+        "9",
+        "10"
+      ]
+    },
+    "193": {
+      "text": "Améliorer mes photos de vacances",
+      "description": "L'IA peut-elle améliorer mes photos de vacances",
+      "answers": [
+        "10"
+      ]
+    },
+    "194": {
+      "text": "Planifier mes voyages",
+      "description": "Est-ce que l'IA peut planifier mes voyages",
+      "answers": [
+        "14"
+      ]
+    },
+    "195": {
+      "text": "Créer des mèmes",
+      "description": "L'IA peut-elle créer des mèmes",
+      "answers": [
+        "9"
+      ]
+    },
+    "196": {
+      "text": "Jouer aux échecs",
+      "description": "Puis-je utiliser l'IA pour jouer aux échecs",
+      "answers": [
+        "8"
+      ]
+    },
+    "197": {
+      "text": "Générer des puzzles",
+      "description": "L'IA peut-elle générer des puzzles",
+      "answers": [
+        "10"
+      ]
+    },
+    "198": {
+      "text": "Remplacer un guide touristique",
+      "description": "Est-ce que l'IA peut remplacer un guide touristique",
+      "answers": [
+        "10"
+      ]
+    },
+    "199": {
+      "text": "Écrire des messages romantiques",
+      "description": "L'IA peut-elle écrire des messages romantiques",
+      "answers": [
+        "10"
+      ]
+    },
+    "200": {
+      "text": "M'aider à faire des rencontres",
+      "description": "Est-ce que l'IA peut m'aider à faire des rencontres",
+      "answers": [
+        "10"
+      ]
+    },
+    "201": {
+      "text": "Analyser le langage corporel",
+      "description": "L'IA peut-elle analyser le langage corporel",
+      "answers": [
+        "10"
+      ]
+    },
+    "202": {
+      "text": "Améliorer ma communication",
+      "description": "Puis-je utiliser l'IA pour améliorer ma communication",
+      "answers": [
+        "10"
+      ]
+    },
+    "203": {
+      "text": "Détecter les mensonges",
+      "description": "L'IA peut-elle détecter les mensonges",
+      "answers": [
+        "13"
+      ]
+    },
+    "204": {
+      "text": "Remplacer un psychologue",
+      "description": "Est-ce que l'IA peut remplacer un psychologue",
+      "answers": [
+        "12"
+      ]
+    },
+    "205": {
+      "text": "Écrire des discours de mariage",
+      "description": "L'IA peut-elle écrire des discours de mariage",
+      "answers": [
+        "10",
+        "17"
+      ]
+    },
+    "206": {
+      "text": "Gérer les conflits",
+      "description": "Puis-je utiliser l'IA pour gérer les conflits",
+      "answers": [
+        "17"
+      ]
+    },
+    "207": {
+      "text": "Prédire la compatibilité amoureuse",
+      "description": "L'IA peut-elle prédire la compatibilité amoureuse",
+      "answers": [
+        "17"
+      ]
+    },
+    "208": {
+      "text": "M'aider à me faire des amis",
+      "description": "Est-ce que l'IA peut m'aider à me faire des amis",
+      "answers": [
+        "17"
+      ]
+    },
+    "209": {
+      "text": "Gérer mon budget",
+      "description": "L'IA peut-elle gérer mon budget",
+      "answers": [
+        "19"
+      ]
+    },
+    "210": {
+      "text": "Recommander des investissements",
+      "description": "Est-ce que l'IA peut recommander des investissements",
+      "answers": [
+        "19"
+      ]
+    },
+    "211": {
+      "text": "Prédire les cours de la bourse",
+      "description": "L'IA peut-elle prédire les cours de la bourse",
+      "answers": [
+        "13",
+        "19"
+      ]
+    },
+    "212": {
+      "text": "Épargner automatiquement",
+      "description": "Puis-je utiliser l'IA pour épargner automatiquement",
+      "answers": [
+        "16"
+      ]
+    },
+    "213": {
+      "text": "Détecter les dépenses inutiles",
+      "description": "L'IA peut-elle détecter les dépenses inutiles",
+      "answers": [
+        "7"
+      ]
+    },
+    "214": {
+      "text": "Négocier mes contrats",
+      "description": "Est-ce que l'IA peut négocier mes contrats",
+      "answers": [
+        "17"
+      ]
+    },
+    "215": {
+      "text": "Optimiser mes impôts",
+      "description": "L'IA peut-elle optimiser mes impôts",
+      "answers": [
+        "5"
+      ]
+    },
+    "216": {
+      "text": "Choisir une assurance",
+      "description": "Puis-je utiliser l'IA pour choisir une assurance",
+      "answers": [
+        "7"
+      ]
+    },
+    "217": {
+      "text": "Prédire ma retraite",
+      "description": "L'IA peut-elle prédire ma retraite",
+      "answers": [
+        "7"
+      ]
+    },
+    "218": {
+      "text": "M'aider à sortir de la dette",
+      "description": "Est-ce que l'IA peut m'aider à sortir de la dette",
+      "answers": [
+        "13"
+      ]
+    },
+    "219": {
+      "text": "Estimer la valeur d'un bien",
+      "description": "L'IA peut-elle estimer la valeur d'un bien",
+      "answers": [
+        "13"
+      ]
+    },
+    "220": {
+      "text": "Trouver l'appartement idéal",
+      "description": "Est-ce que l'IA peut trouver l'appartement idéal",
+      "answers": [
+        "13"
+      ]
+    },
+    "221": {
+      "text": "Prédire les tendances immobilières",
+      "description": "L'IA peut-elle prédire les tendances immobilières",
+      "answers": [
+        "13"
+      ]
+    },
+    "222": {
+      "text": "Décorer mon intérieur",
+      "description": "Puis-je utiliser l'IA pour décorer mon intérieur",
+      "answers": [
+        "10",
+        "14"
+      ]
+    },
+    "223": {
+      "text": "Optimiser ma consommation d'énergie",
+      "description": "L'IA peut-elle optimiser ma consommation d'énergie",
+      "answers": [
+        "8"
+      ]
+    },
+    "224": {
+      "text": "Gérer mes locations",
+      "description": "Est-ce que l'IA peut gérer mes locations",
+      "answers": [
+        "5"
+      ]
+    },
+    "225": {
+      "text": "Détecter des vices cachés",
+      "description": "L'IA peut-elle détecter des vices cachés",
+      "answers": [
+        "5"
+      ]
+    },
+    "226": {
+      "text": "Planifier des travaux",
+      "description": "Puis-je utiliser l'IA pour planifier des travaux",
+      "answers": [
+        "5"
+      ]
+    },
+    "227": {
+      "text": "Améliorer le feng shui de ma maison",
+      "description": "L'IA peut-elle améliorer le feng shui de ma maison",
+      "answers": [
+        "10"
+      ]
+    },
+    "228": {
+      "text": "Remplacer un agent immobilier",
+      "description": "Est-ce que l'IA peut remplacer un agent immobilier",
+      "answers": [
+        "22"
+      ]
+    },
+    "229": {
+      "text": "Recommander des tenues",
+      "description": "L'IA peut-elle recommander des tenues",
+      "answers": [
+        "10",
+        "14"
+      ]
+    },
+    "230": {
+      "text": "Créer des designs de vêtements",
+      "description": "Est-ce que l'IA peut créer des designs de vêtements",
+      "answers": [
+        "10",
+        "14"
+      ]
+    },
+    "231": {
+      "text": "Essayer des vêtements virtuellement",
+      "description": "Puis-je utiliser l'IA pour essayer des vêtements virtuellement",
+      "answers": [
+        "10",
+        "14"
+      ]
+    },
+    "232": {
+      "text": "Maquiller virtuellement",
+      "description": "Est-ce que l'IA peut maquiller virtuellement",
+      "answers": [
+        "10",
+        "14"
+      ]
+    },
+    "233": {
+      "text": "Prédire les tendances mode",
+      "description": "L'IA peut-elle prédire les tendances mode",
+      "answers": [
+        "21"
+      ]
+    },
+    "234": {
+      "text": "Trier ma garde-robe",
+      "description": "Puis-je utiliser l'IA pour trier ma garde-robe",
+      "answers": [
+        "14"
+      ]
+    },
+    "235": {
+      "text": "Créer des patrons de couture",
+      "description": "L'IA peut-elle créer des patrons de couture",
+      "answers": [
+        "10"
+      ]
+    },
+    "236": {
+      "text": "Améliorer mon style",
+      "description": "Est-ce que l'IA peut améliorer mon style",
+      "answers": [
+        "10"
+      ]
+    },
+    "237": {
+      "text": "Créer un programme d'entraînement",
+      "description": "L'IA peut-elle créer un programme d'entraînement",
+      "answers": [
+        "12"
+      ]
+    },
+    "238": {
+      "text": "Analyser mes performances sportives",
+      "description": "Est-ce que l'IA peut analyser mes performances sportives",
+      "answers": [
+        "12"
+      ]
+    },
+    "239": {
+      "text": "Corriger ma technique",
+      "description": "L'IA peut-elle corriger ma technique",
+      "answers": [
+        "19"
+      ]
+    },
+    "240": {
+      "text": "Prédire mes résultats",
+      "description": "Puis-je utiliser l'IA pour prédire mes résultats",
+      "answers": [
+        "21"
+      ]
+    },
+    "241": {
+      "text": "Prévenir les blessures",
+      "description": "L'IA peut-elle prévenir les blessures",
+      "answers": [
+        "12"
+      ]
+    },
+    "242": {
+      "text": "Remplacer un coach sportif",
+      "description": "Est-ce que l'IA peut remplacer un coach sportif",
+      "answers": [
+        "12"
+      ]
+    },
+    "243": {
+      "text": "Optimiser ma récupération",
+      "description": "L'IA peut-elle optimiser ma récupération",
+      "answers": [
+        "12"
+      ]
+    },
+    "244": {
+      "text": "Suivre ma progression",
+      "description": "Puis-je utiliser l'IA pour suivre ma progression",
+      "answers": [
+        "18"
+      ]
+    },
+    "245": {
+      "text": "Recommander des équipements",
+      "description": "L'IA peut-elle recommander des équipements",
+      "answers": [
+        "11"
+      ]
+    },
+    "246": {
+      "text": "Analyser les matchs de foot",
+      "description": "Est-ce que l'IA peut analyser les matchs de foot",
+      "answers": [
+        "13"
+      ]
     }
   },
   "answers": {
@@ -685,14 +1774,31 @@
         "59",
         "65",
         "66",
-        "72"
+        "72",
+        "107",
+        "130",
+        "131",
+        "133",
+        "134",
+        "135",
+        "136",
+        "147"
       ]
     },
     "2": {
       "text": "Tache Rebarbative, donc utile. # Peut vraiment faire gagner du temps et de l'énergie sur des tâches répétitives et ennuyeuses, c'est cool.",
       "questions": [
         "10",
-        "36"
+        "36",
+        "140",
+        "141",
+        "145",
+        "146",
+        "152",
+        "155",
+        "163",
+        "11",
+        "12"
       ]
     },
     "3": {
@@ -717,7 +1823,22 @@
         "19",
         "32",
         "35",
-        "53"
+        "53",
+        "139",
+        "149",
+        "150",
+        "173",
+        "174",
+        "175",
+        "176",
+        "177",
+        "178",
+        "179",
+        "180",
+        "215",
+        "224",
+        "225",
+        "226"
       ]
     },
     "6": {
@@ -738,7 +1859,22 @@
       "questions": [
         "24",
         "25",
-        "30"
+        "30",
+        "103",
+        "111",
+        "112",
+        "114",
+        "115",
+        "124",
+        "137",
+        "138",
+        "142",
+        "153",
+        "157",
+        "213",
+        "216",
+        "217",
+        "106"
       ]
     },
     "8": {
@@ -747,7 +1883,11 @@
         "11",
         "12",
         "13",
-        "14"
+        "14",
+        "109",
+        "126",
+        "196",
+        "223"
       ]
     },
     "9": {
@@ -758,7 +1898,15 @@
         "54",
         "55",
         "56",
-        "57"
+        "57",
+        "104",
+        "108",
+        "125",
+        "127",
+        "128",
+        "129",
+        "192",
+        "195"
       ]
     },
     "10": {
@@ -767,7 +1915,36 @@
         "74",
         "76",
         "82",
-        "85"
+        "85",
+        "93",
+        "94",
+        "95",
+        "96",
+        "97",
+        "98",
+        "99",
+        "100",
+        "101",
+        "105",
+        "190",
+        "191",
+        "192",
+        "193",
+        "197",
+        "198",
+        "199",
+        "200",
+        "201",
+        "202",
+        "205",
+        "222",
+        "227",
+        "229",
+        "230",
+        "231",
+        "232",
+        "235",
+        "236"
       ]
     },
     "11": {
@@ -779,7 +1956,12 @@
         "68",
         "73",
         "79",
-        "91"
+        "91",
+        "102",
+        "143",
+        "144",
+        "189",
+        "245"
       ]
     },
     "12": {
@@ -800,7 +1982,22 @@
         "67",
         "71",
         "78",
-        "84"
+        "84",
+        "116",
+        "117",
+        "118",
+        "119",
+        "120",
+        "121",
+        "122",
+        "123",
+        "182",
+        "204",
+        "237",
+        "238",
+        "241",
+        "242",
+        "243"
       ]
     },
     "13": {
@@ -813,7 +2010,16 @@
         "47",
         "48",
         "64",
-        "90"
+        "90",
+        "156",
+        "187",
+        "203",
+        "211",
+        "218",
+        "219",
+        "220",
+        "221",
+        "246"
       ]
     },
     "14": {
@@ -824,7 +2030,16 @@
         "55",
         "56",
         "60",
-        "79"
+        "79",
+        "183",
+        "184",
+        "194",
+        "222",
+        "229",
+        "230",
+        "231",
+        "232",
+        "234"
       ]
     },
     "15": {
@@ -833,7 +2048,10 @@
         "3",
         "20",
         "52",
-        "73"
+        "73",
+        "181",
+        "185",
+        "186"
       ]
     },
     "16": {
@@ -842,6 +2060,7 @@
         "4",
         "23",
         "26",
+        "27",
         "28",
         "29",
         "49",
@@ -849,7 +2068,11 @@
         "62",
         "63",
         "67",
-        "86"
+        "86",
+        "158",
+        "159",
+        "164",
+        "212"
       ]
     },
     "17": {
@@ -860,7 +2083,14 @@
         "16",
         "29",
         "38",
-        "80"
+        "80",
+        "132",
+        "154",
+        "205",
+        "206",
+        "207",
+        "208",
+        "214"
       ]
     },
     "18": {
@@ -868,18 +2098,27 @@
       "questions": [
         "15",
         "32",
-        "70"
+        "70",
+        "148",
+        "244"
       ]
     },
     "19": {
-      "text": "Resultat imprévisible. # Peut être très bon ou complètement à côté de la plaque, difficile à dire.",
+      "text": "Résultat imprévisible. # Peut être très bon ou complètement à côté de la plaque, difficile à dire.",
       "questions": [
         "22",
         "34",
         "37",
         "75",
         "83",
-        "87"
+        "87",
+        "110",
+        "160",
+        "165",
+        "209",
+        "210",
+        "211",
+        "239"
       ]
     },
     "20": {
@@ -895,7 +2134,28 @@
         "47",
         "48",
         "49",
-        "69"
+        "69",
+        "113",
+        "151",
+        "166",
+        "167",
+        "170",
+        "180",
+        "233",
+        "240"
+      ]
+    },
+    "22": {
+      "text": "Tache trop 'physique' pour l'IA # Implique trop d'interactions avec le monde réel, ce qui est encore très compliqué pour une IA générative classique.",
+      "questions": [
+        "161",
+        "162",
+        "168",
+        "169",
+        "171",
+        "172",
+        "188",
+        "228"
       ]
     }
   }
